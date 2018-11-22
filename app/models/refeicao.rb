@@ -1,0 +1,2 @@
+class Refeicao < ApplicationRecord
+end
