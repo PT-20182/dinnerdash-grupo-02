@@ -1,2 +1,0 @@
-class Refeicao < ApplicationRecord
-end
