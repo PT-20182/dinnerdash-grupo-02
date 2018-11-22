@@ -1,0 +1,9 @@
+<h1>Categories#new</h1>
+<p>Find me in app/views/categories/new.html.erb</p>
+<h3>Create a New Category</h3>
+<%= form_with model: @category do |form| %>
+  <%= form.text_field :name, placeholder: "name" %>
+
+  <%= form.submit %>
+<% end %>
+<%= link_to  "voltar", categories_path %>

@@ -1,0 +1,6 @@
+<h1>Categories#show</h1>
+<p>Find me in app/views/categories/show.html.erb</p>
+<h1><%= @category.name  %></h1>
+<%= link_to 'Remove', @category, method: :delete, data: { confirm: 'Are you sure?' } %>
+<br>
+<%= link_to "voltar para o index", categories_path%>
