@@ -40,13 +40,13 @@
                         <td class =""><%=category.created_at.strftime('%d/%m/%y')%></td>
                         <td class =""></td>
                         <td class ="ed font-weight-bold yellow"><%= link_to  "editar", edit_category_path(category) %></td>
-                        <td class ="exc font-weight-bold"><%= link_to "excluir", category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                        <td class ="exc font-weight-bold"><%= link_to "excluir", category, method: :delete, data: { confirm: 'você tem certeza?' } %></td>
 
                     </tr>
                 <%end%>
             </tbody>
         </table>
-        <button class = "btn btn-success botao"><%= link_to  "nova categoria de refeição", new_category_path %> </button>
+        <%= button_to "criar nova categoria", new_category_path, :method => "get", class: "btn btn-success" %>
     </div>
     <div class = "footer">
         <span class = "fotd">dinnerdash | todos os direitos reservados</span><span class = "develop">desenvolvido por Yuri Crystian Ribeiro e Silva</span>
