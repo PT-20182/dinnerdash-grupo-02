@@ -24,7 +24,7 @@ class CategoriesController < ApplicationController
   def update
     @category.update(category_params)
 
-    redirect_to category_path(@category)
+    redirect_to categories_path
   end
 
   def destroy 
