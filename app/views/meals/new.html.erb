@@ -1,2 +1,13 @@
-<h1>Meals#new</h1>
+<h1>Meal#new</h1>
 <p>Find me in app/views/meals/new.html.erb</p>
+<h3>Create a New Meal</h3>
+<%= form_with model: @meal do |form| %>
+  <%= form.text_field :name, placeholder: "name" %>
+  <%= form.text_field :description, placeholder: "description" %>
+  <%= form.text_field :price, placeholder: "price" %>
+  <%= form.check_box :available %>
+  <%= form.file_field :image %>
+
+  <%= form.submit %>
+<% end %>
+<%= link_to  "voltar", meals_path %>
