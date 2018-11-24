@@ -9,6 +9,7 @@ class MealsController < ApplicationController
 	end
   
 	def new
+		@categories = Category.all
 	  @meal = Meal.new
 	end
   

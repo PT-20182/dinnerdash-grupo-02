@@ -7,6 +7,7 @@
   <%= form.text_field :price, placeholder: "price" %>
   <%= form.check_box :available %>
   <%= form.file_field :image %>
+  <%= form.select :category_id, @categories.collect { |category| [category.name, category.id]  } %>
 
   <%= form.submit %>
 <% end %>
