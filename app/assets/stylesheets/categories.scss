@@ -1,0 +1,213 @@
+// Place all the styles related to the Categories controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+* {
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+    font-size: 0.4em;
+    
+}
+.img {
+    background-image: url(helloquence-61189.jpg);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+
+    height: 45vh;
+    width: 100%;
+}
+.escurinho {
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.363);
+
+}
+.status_tab {
+    color: white;
+    border-radius: 5px;
+    
+}
+
+
+.entregue {
+    background-color: #28a745;
+    text-align: center;
+}
+.pend {
+    background-color: #007bff;
+    text-align: center;
+}
+.cancel {
+    background-color: #E82431;
+    text-align: center;
+}
+table{
+    border-spacing: 0;
+    width: 100%;
+}
+
+.top th{
+    background-color:  #DEE2E6;
+    padding: 10px 30px;
+    text-align: left;
+}
+td {
+    padding: 10px 30px 10px 30px;
+    text-align: left;
+    border-bottom: 2px solid #DEE2E6;
+}
+.editar{
+    color:  #FDDF4C;
+    padding-right: 30px;
+}
+.excluir {
+    color: #E82431;
+}
+.itens_pedido {
+    padding-right: 30px;
+    color: #007bff;
+}
+.data {
+    padding-left: 30px;
+}
+
+.cont {
+    height: 100vh;
+}
+.tab {
+    margin-top: 1em;
+    font-size: 2em;
+    width: 80%;
+}
+.gray {
+    background-color:  #DEE2E6;
+}
+.bord {
+    border-radius: 15px;
+    color: white;
+}
+.ped {
+    color: rgb(170, 13, 170);
+}
+.ed {
+    color: #FDDF4C;
+}
+.exc{
+    color: #E82431;
+}
+.exc a:link { 
+    color: #E82431;
+    text-decoration:none; 
+
+}
+.exc a:visited { 
+    color: #E82431;
+    text-decoration:none; 
+
+}
+.whi {
+    color: white;
+    font-size: 2.5em;
+    padding-left: 4em;
+    padding-top: 2em;
+    display: inline;
+}
+.Back {
+    color: white;
+    font-size: 10em;
+    padding-top: 1.7em;
+    padding-left: 1em;
+}
+.ger {
+    color: white;
+    font-size: 3.4em;
+    padding-left: 3.1em;
+}
+.top-right {
+    color: white;
+    font-size: 1.8em;
+    padding-left: 84em;
+    padding-top: 2em;
+}
+.top-r {
+    padding-left: 2em;
+}
+.yellow {
+    color: yellow;
+}
+.ed a:link { 
+    color: yellow;
+    text-decoration:none; 
+
+}
+.ed a:visited { 
+    color: yellow;
+    text-decoration:none; 
+
+}
+.nav {
+    font-size: 2.5em;
+    width: 100%;
+    padding-left: 4em;
+}
+.footer {
+    position: fixed;
+    font-size: 2em;
+    left: 0;
+    bottom: 0;
+    height: 2em;
+    width: 100%;
+    background-color: #DEE2E6;
+    color: black;
+    text-align: left;
+}
+.fotd {
+    padding-left: 12em;
+    font-weight: bold;
+}
+.develop {
+    font-weight: bold;
+    padding-left: 45em;
+}
+.botao_tr {
+    border-bottom: white;
+    color: white;
+}
+.td_bot {
+    margin-left: 0;
+}
+.botao a:link { 
+    text-decoration:none; 
+    color: white;
+}
+.botao a:visited { 
+    text-decoration:none; 
+    color: white;
+}
+.input input {
+    border-color: #DEE2E6;
+    border-radius: 5px;
+    border-width: 2px;
+    height: 3em;
+    width: 100%;
+    margin-bottom: 2em;
+}
+.new_cat {
+    border-bottom: 2px solid #DEE2E6;
+    font-size: 1.5em;
+}
+.form {
+    margin-left: 4.2em
+}
+.nome {
+    padding-top: 2em;
+    font-size: 1.3em;
+}
+.space {
+    margin-right: 1em;
+}
+.voltar {
+    padding-left: 2.5em;
+    padding-right: 2.5em;
+}
