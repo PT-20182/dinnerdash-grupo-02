@@ -1,6 +1,7 @@
 class MealsController < ApplicationController
 	before_action :current_meal, only:[:show, :edit, :update, :destroy]
 
+
 	def index
 	  @meals = Meal.all
 	end
@@ -9,7 +10,8 @@ class MealsController < ApplicationController
 	end
   
 	def new
-	  @meal = Meal.new
+		@meal = Meal.new
+		@categories = Category.All
 	end
   
 	def create
