@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'meals/index'
+  get 'meals/show'
+  get 'meals/new'
+  get 'meals/edit'
   get 'situations/index'
   get 'situations/show'
   get 'situations/edit'

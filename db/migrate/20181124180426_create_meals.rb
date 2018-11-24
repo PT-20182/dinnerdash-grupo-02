@@ -3,9 +3,8 @@ class CreateMeals < ActiveRecord::Migration[5.2]
     create_table :meals do |t|
       t.string :name
       t.text :description
-      t.binary :image
-      t.boolean :avaliable
       t.float :price
+      t.boolean :available
 
       t.timestamps
     end
