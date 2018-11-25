@@ -37,13 +37,14 @@
             </thead>
             <tbody>
                 <% @meals.each do |meal| %>
+                <% meal.available ? available = "disponivel" : available = "indisponivel" %>
                     <tr>   
                         <%@category = @categories.find(meal.category_id)%>
                         <td class =""><%=meal.name%></td>
                         <td class =""><%=meal.description%></td>
                         <td class =""><%=@category.name%></td>
                         <td class =""><%=meal.price%></td>
-                        <td class =""><%=meal.available%></td>
+                        <td class =""><%=available%></td>
                         <td class =""><%=meal.created_at.strftime('%d/%m/%y')%></td>
                         <td class =""></td>
                         <td class ="ed font-weight-bold yellow"><%= link_to  "editar", edit_meal_path(meal) %></td>

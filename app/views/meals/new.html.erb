@@ -33,7 +33,7 @@
       <label class = "labels">Preço</label>
       <div class ="input"><%= form.text_field :price%></div>
       <label class = "labels">Disponibilidade</label>
-      <div class ="input"><%= form.check_box :avaliable, checked: true%></div>
+      <div class ="input"><%= form.check_box :available%></div>
 
 			<button class = "btn btn-success botao space"><% form.submit %>criar refeição</button><button class = "btn botao voltar"><%= link_to  "voltar", meals_path %> </button>
         <% end %>
