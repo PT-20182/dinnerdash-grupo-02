@@ -1,10 +1,65 @@
-<h1>Meals#index</h1>
-<p>Find me in app/views/meals/index.html.erb</p>
+<div class = "d-flex flex-column cont">
+    <div class = "img">
+        <div class = "escurinho">
+            <div class = "whi">dinnerdash</div>
+            <span class = "top-right"><span class = "top-r yellow">backoffice</span><span class = "top-r">perfil</span><span class = "top-r">sair</span></span>
+            <div class = "Back">Backoffice</div>
+            <div class = "ger">Gerencie pedidos, refeições e mais</div>
+        </div>
+    </div>
+    <nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark nav">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <span class="nav-item nav-link" href="#">Pedidos <span class="sr-only">(current)</span></span>
+                <span class="nav-item nav-link " href="#">Usuários</span>
+                <span class="nav-item nav-link active" href="#">Refeições</span>
+                <span class="nav-item nav-link" href="#">Categorias de Refeição</span>
+            </div>
+        </div>
+    </nav>
+    <div class = "container-fluid tab">
+        <table class="table">
+            <thead class="gray">
+            <tr>
+                <th scope="col">Nome</th>
+                <th scope="col">Descrição</th>
+                <th scope="col">Categoria</th>
+                <th scope="col">Preço</th>
+                <th scope="col">Cadastrada em</th>
+                <th scope="col"></th>
+                <th scope="col"></th>
+                <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+                <% @meals.each do |meal| %>
+                    <tr>    
+                        <td class =""><%=meal.name%></td>
+                        <td class =""><%=meal.description%></td>
+                        <td class =""><%=meal.category%></td>
+                        <td class =""><%=meal.price%></td>
+                        <td class =""><%=meal.created_at.strftime('%d/%m/%y')%></td>
+                        <td class =""></td>
+                        <td class ="ed font-weight-bold yellow"><%= link_to  "editar", edit_meal_path(meal) %></td>
+                        <td class ="exc font-weight-bold"><%= link_to "excluir", meal, method: :delete, data: { confirm: 'você tem certeza?' } %></td>
+                    </tr>
+                <%end%>
+            </tbody>
+        </table>
+        <%= button_to "criar nova refeição", new_meal_path, :method => "get", class: "btn btn-success" %>
+    </div>
+    <div class = "footer">
+        <span class = "fotd">dinnerdash | todos os direitos reservados</span><span class = "develop">Design por Yuri Silva, Backend por Bruno Sanguinetti</span>
+    </div>
+</div>
 
-<ul>
-    <% @meals.each do |meal| %>
-        <li><%=meal.name%><br><%=meal.description%><br><%=meal.price%><br><%=meal.available%><br><%=meal.image%><span>    </span><%=link_to "editar",edit_meal_path(meal)%><span>    </span><%=link_to "visualizar",category_path(meal)%></li>
-    <% end %>
-    <%=link_to "Nova Categoria", new_meal_path%>
+#<ul>
+ #   <% @meals.each do |meal| %>
+  #      <li><%=meal.name%><br><%=meal.description%><br><%=meal.price%><br><%=meal.available%><br><%=meal.image%><span>    </span><%=link_to "editar",edit_meal_path(meal)%><span>    </span><%=link_to "visualizar",category_path(meal)%></li>
+   # <% end %>
+    #<%=link_to "Nova Refeição", new_meal_path%>
 
-</ul>
+#</ul>

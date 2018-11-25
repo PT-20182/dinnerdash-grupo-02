@@ -1,13 +1,35 @@
-<h1>Meal#new</h1>
-<p>Find me in app/views/meals/new.html.erb</p>
-<h3>Create a New Meal</h3>
-<%= form_with model: @meal do |form| %>
-  <%= form.text_field :name, placeholder: "name" %>
-  <%= form.text_field :description, placeholder: "description" %>
-  <%= form.text_field :price, placeholder: "price" %>
-  <%= form.check_box :available %>
-  <%= form.file_field :image %>
+<div class = "d-flex flex-column cont">
+    <div class = "img">
+        <div class = "escurinho">
+            <div class = "whi">dinnerdash</div>
+            <span class = "top-right"><span class = "top-r yellow">backoffice</span><span class = "top-r">perfil</span><span class = "top-r">sair</span></span>
+            <div class = "Back">Backoffice</div>
+            <div class = "ger">Gerencie pedidos, refeições e mais</div>
+        </div>
+    </div>
+    <nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark nav">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <span class="nav-item nav-link" href="#">Pedidos <span class="sr-only">(current)</span></span>
+                <span class="nav-item nav-link " href="#">Usuários</span>
+                <span class="nav-item nav-link active" href="#">Refeições</span>
+                <span class="nav-item nav-link" href="#">Categorias de Refeição</span>
+            </div>
+        </div>
+    </nav>
+    <div class = "container-fluid form tab">
+		<div class ="new_cat">Nova refeição</div>
+        <%= form_with model: @meal do |form| %>
+			<label class = "nome">Nome</label>
+			<div class ="input"><%= form.text_field :name%></div>
 
-  <%= form.submit %>
-<% end %>
-<%= link_to  "voltar", meals_path %>
+			<button class = "btn btn-success botao space"><% form.submit %>criar refeição</button><button class = "btn botao voltar"><%= link_to  "voltar", meals_path %> </button>
+        <% end %>
+    </div>
+    <div class = "footer">
+        <span class = "fotd">dinnerdash | todos os direitos reservados</span><span class = "develop">Design por Yuri Silva, Backend por Bruno Sanguinetti</span>
+    </div>
+</div>
