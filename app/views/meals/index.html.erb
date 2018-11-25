@@ -28,6 +28,7 @@
                 <th scope="col">Descrição</th>
                 <th scope="col">Categoria</th>
                 <th scope="col">Preço</th>
+                <th scope="col">Disponibilidade</th>
                 <th scope="col">Cadastrada em</th>
                 <th scope="col"></th>
                 <th scope="col"></th>
@@ -41,6 +42,7 @@
                         <td class =""><%=meal.description%></td>
                         <td class =""><%=meal.category%></td>
                         <td class =""><%=meal.price%></td>
+                        <td class =""><%=meal.available%></td>
                         <td class =""><%=meal.created_at.strftime('%d/%m/%y')%></td>
                         <td class =""></td>
                         <td class ="ed font-weight-bold yellow"><%= link_to  "editar", edit_meal_path(meal) %></td>

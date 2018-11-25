@@ -20,15 +20,25 @@
             </div>
         </div>
     </nav>
+    <br>
     <div class = "container-fluid form tab">
 		<div class ="new_cat">Nova refeição</div>
         <%= form_with model: @meal do |form| %>
-			<label class = "nome">Nome</label>
-			<div class ="input"><%= form.text_field :name%></div>
+      <label class = "labels">Nome</label>
+      <div class ="input"><%= form.text_field :name%></div>
+      <label class = "labels">Descrição</label>
+      <div class ="input"><%= form.text_field :description%></div>
+      <label class = "labels">Categoria</label>
+      <div class = "labels"><%= form.select :category_id, @categories.collect { |category| [category.name, category.id] }%></div>
+      <label class = "labels">Preço</label>
+      <div class ="input"><%= form.text_field :price%></div>
+      <label class = "labels">Disponibilidade</label>
+      <div class ="input"><%= form.check_box :avaliable, checked: true%></div>
 
 			<button class = "btn btn-success botao space"><% form.submit %>criar refeição</button><button class = "btn botao voltar"><%= link_to  "voltar", meals_path %> </button>
         <% end %>
     </div>
+
     <div class = "footer">
         <span class = "fotd">dinnerdash | todos os direitos reservados</span><span class = "develop">Design por Yuri Silva, Backend por Bruno Sanguinetti</span>
     </div>

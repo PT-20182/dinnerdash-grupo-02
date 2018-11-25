@@ -3,7 +3,8 @@ class MealsController < ApplicationController
 
 
 	def index
-	  @meals = Meal.all
+		@meals = Meal.all
+		@categories = Category.all
 	end
   
 	def show
@@ -21,6 +22,7 @@ class MealsController < ApplicationController
 	end
 	
 	def edit
+		@categories = Category.all
 	end
   
 	def update

@@ -24,7 +24,7 @@
 		<div class ="new_cat">Nova categoria de refeição</div>
         <%= form_with model: @category do |form| %>
 			<label class = "nome">Nome</label>
-			<div class ="input"><%= form.text_field :name%></div>
+            <div class ="input"><%= form.text_field :name%></div>
 
 			<button class = "btn btn-success botao space"><% form.submit %>criar categoria de refeição</button><button class = "btn botao voltar"><%= link_to  "voltar", categories_path %> </button>
         <% end %>
