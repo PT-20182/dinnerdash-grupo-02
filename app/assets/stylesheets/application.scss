@@ -15,22 +15,4 @@
  */
 @import "bootstrap";
 @import "categories";
-div.img_login{
-	background-image: url(LOGIN.jpg);
-	background-size: 150% 100%;
-	width: 65%;
-	background-repeat: no-repeat;
-}
-div.resto_login{
-	margin: 8% 6% 0% 5%;
-}
-h2{
-	font-family: 'Amaranth', sans-serif;
-	font-weight: normal;
-	font-size: 2.4em;
-	color: #505050;
-}
-div.container{
-	display: flex;
-	height: 650px;
-}
+@import "users";
