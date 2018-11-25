@@ -16,8 +16,6 @@ gem 'puma', '~> 3.11'
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
-gem 'bootstrap', '~> 4.1.3'
-gem 'jquery-rails'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'mini_racer', platforms: :ruby
 
@@ -54,6 +52,8 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
+gem 'bootstrap'
+gem 'jquery-rails'
 
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

@@ -3,7 +3,8 @@ class MealsController < ApplicationController
 
 
 	def index
-	  @meals = Meal.all
+		@meals = Meal.all
+		@categories = Category.all
 	end
   
 	def show
@@ -11,7 +12,7 @@ class MealsController < ApplicationController
   
 	def new
 		@meal = Meal.new
-		@categories = Category.All
+		@categories = Category.all
 	end
   
 	def create
@@ -21,6 +22,7 @@ class MealsController < ApplicationController
 	end
 	
 	def edit
+		@categories = Category.all
 	end
   
 	def update
@@ -38,7 +40,7 @@ class MealsController < ApplicationController
 	private
   
 	def meal_params
-	  params.require(:meal).permit(:name,:description,:price,:available,:image)
+	  params.require(:meal).permit(:name,:description,:price,:available,:image,:category_id)
 	end
   
 	def current_meal
