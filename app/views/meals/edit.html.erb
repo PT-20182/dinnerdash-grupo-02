@@ -15,8 +15,8 @@
             <div class="navbar-nav">
                 <span class="nav-item nav-link" href="#">Pedidos <span class="sr-only">(current)</span></span>
                 <span class="nav-item nav-link " href="#">Usuários</span>
-                <span class="nav-item nav-link" href="#">Refeições</span>
-                <span class="nav-item nav-link active" href="#">Categorias de Refeição</span>
+                <span class="nav-item nav-link " href="#">Refeições</span>
+                <span class="nav-item " href="#"><%= link_to  "Categorias de Refeição", categories_path, class: "nav-link" %>
             </div>
         </div>
     </nav>
@@ -32,7 +32,7 @@
   <label class = "labels">Preço</label>
   <div class ="input"><%= form.text_field :price%></div>
   <label class = "labels">Disponibilidade</label>
-  <div class ="input"><%= form.check_box :avaliable, checked: true%></div>
+  <div class ="input"><%= form.check_box :avaliable%></div>
 
 			<button class = "btn btn-success botao space"><% form.submit %>atualizar</button><button class = "btn botao voltar"><%= link_to  "voltar", categories_path %> </button>
         <% end %>

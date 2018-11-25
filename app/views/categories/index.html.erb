@@ -34,9 +34,10 @@
             </thead>
             <tbody>
                 <% @categories.each do |category| %>
+                    <% i = quantidade(category) %>
                     <tr>    
                         <td class =""><%=category.name%></td>
-                        <td class ="">Número de Refeições</td>
+                        <td class =""><%= i %></td>
                         <td class =""><%=category.created_at.strftime('%d/%m/%y')%></td>
                         <td class =""></td>
                         <td class ="ed font-weight-bold yellow"><%= link_to  "editar", edit_category_path(category) %></td>
