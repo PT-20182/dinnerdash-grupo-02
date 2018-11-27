@@ -1,8 +1,12 @@
 * {
 	font-family: "Open Sans";
 }
-
-
+.title{
+	margin-top: 15%;
+}
+.title1{
+	margin-top: 9%;
+}
 .dinner {
 	color: #505050;
 	font-size: 1.5em;
@@ -77,9 +81,18 @@ input.login {
 	
 }
 .din {
-	font-size: 5em;
+	font-size: 6em;
 }
 
+.tam_resto{
+	font-size: 1.8em;
+}
+.tam_resto1{
+	font-size: 1.7em;
+}
+.tam_resto2{
+	font-size: 2.2em;
+}
 .cont {
 	display: flex;
 	flex-direction: row;
@@ -90,7 +103,12 @@ input.login {
     background-repeat: no-repeat;
 	width: 70%;
 }
-
+.conimg1{
+	background-image: url(newsenha.jpg);
+	background-size: 95% 100%;
+    background-repeat: no-repeat;
+	width: 70%;
+}
 
 .conput {
 	display: flex;

@@ -108,28 +108,32 @@ td {
 }
 .whi {
     color: white;
-    font-size: 2.5em;
-    padding-left: 4em;
-    padding-top: 2em;
-    display: inline;
+    font-size: 3em;
+    padding-left: 3.4em;
+    padding-top: 1em;
 }
 .Back {
     color: white;
     font-size: 10em;
-    padding-top: 1.7em;
+    padding-top: 1.4em;
     padding-left: 1em;
 }
 .ger {
     color: white;
-    font-size: 3.4em;
-    padding-left: 3.1em;
+    font-size: 3em;
+    padding-left: 3.5em;
+}
+.contai{
+    display:flex;
+    justify-content: space-between;
 }
 .top-right {
     color: white;
-    font-size: 1.8em;
-    padding-left: 84em;
+    font-size: 2em;
     padding-top: 2em;
+    padding-right: 6em;
 }
+
 .top-r {
     padding-left: 2em;
 }
@@ -152,24 +156,21 @@ td {
     padding-left: 4em;
 }
 .footer {
+    display:flex;
     position: fixed;
     font-size: 2em;
     left: 0;
     bottom: 0;
-    height: 2em;
+    padding-top:0.6em;
+    height: 3em;
     width: 100%;
     background-color: #DEE2E6;
     color: black;
     text-align: left;
-}
-.fotd {
-    padding-left: 12em;
     font-weight: bold;
+    justify-content: space-around;
 }
-.develop {
-    font-weight: bold;
-    padding-left: 45em;
-}
+
 .botao_tr {
     border-bottom: white;
     color: white;
