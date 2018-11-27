@@ -27,7 +27,7 @@ class MealsController < ApplicationController
   
 	def update
 	  @meal.update(meal_params)
-  
+		
 	  redirect_to meals_path
 	end
   

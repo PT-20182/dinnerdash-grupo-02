@@ -32,8 +32,11 @@
       <div class = "labels"><%= form.select :category_id, @categories.collect { |category| [category.name, category.id] }%></div>
       <label class = "labels">Preço</label>
       <div class ="input"><%= form.text_field :price%></div>
+      <label class = "labels">Imagem</label>
+      <div class ="input"><%= form.file_field :image%></div>
       <label class = "labels">Disponibilidade</label>
       <div class ="input"><%= form.check_box :available%></div>
+      
 
 			<button class = "btn btn-success botao space"><% form.submit %>criar refeição</button><button class = "btn botao voltar"><%= link_to  "voltar", meals_path %> </button>
         <% end %>

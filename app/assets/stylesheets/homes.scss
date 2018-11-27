@@ -1,0 +1,14 @@
+// Place all the styles related to the Homes controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.img_root {
+    background-image: url(jay-wennington-2065.jpg);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+
+    height: 45vh;
+    width: 100%;
+}
+.cards {
+    display: inline;
+}

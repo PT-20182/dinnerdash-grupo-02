@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root to: 'homes#index'
   resources :order_meals
   resources :orders
   resources :situations
