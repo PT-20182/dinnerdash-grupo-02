@@ -1,30 +1,34 @@
-<div class = "d-flex flex-column cont">
+<div class = "d-flex flex-column">
     <div class = "img_root">
         <div class = "escurinho">
             <div class = "whi">dinnerdash</div>
             <span class = "top-right"><span class = "top-r yellow">backoffice</span><span class = "top-r">perfil</span><span class = "top-r">sair</span></span>
-            <div class = "Back">Backoffice</div>
-            <div class = "ger">Gerencie pedidos, refeições e mais</div>
+            <div class = "Back">Monte o seu prato</div>
+            <div class = "ger">Escolha sua salada, molho, prato principal, guarnição e bebida</div>
         </div>
     </div>
-	<%@categories.each do |category| %>
-		<h1><%=category.name%></h1>
-	<div class = "d-flex flex-row">	
-		<%@meals.each do |meal|%>
-			<%if(meal.category_id == category.id)%>
-				<div class="card" style="width: 18rem;">
-				<%= image_tag(meal.image, class: "card-img-top")  %>
-					<div class="card-body">
-						<h1 class="card-title"><%= meal.name %></h1>
-						<p class="card-text"><%= meal.description %></p>
-						<a href="#" class="btn btn-primary">Go somewhere</a>
-					</div>
-				</div>
-
-			<% end %>
+	<div class = "container">
+		<%@categories.each do |category| %>
+			<h1 class = "category_name"><%=category.name%></h1>
+			<div class = "d-flex flex-row contain">	
+				<%@meals.each do |meal|%>
+					<%if(meal.category_id == category.id)%>
+						<div class="card cards">
+						<%= image_tag(meal.image, class: "card-img-top")%>
+							<div class="card-body">
+								<h1 class="card-img-overlay"><%= meal.name %></h1>
+								<h5 class="card-text description"><%= meal.description %></h5>
+								<h5>R<%=number_to_currency(meal.price) %> por porção </h5>
+								<h6>Quantidade</h6>
+								<a href="#" class="btn btn-success">Go somewhere</a>
+							</div>
+						</div>
+					<% end %>
+				<% end %>
+			</div>
 		<% end %>
 	</div>
-	<% end %>
+	
 
 
 

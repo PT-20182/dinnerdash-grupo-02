@@ -10,5 +10,21 @@
     width: 100%;
 }
 .cards {
-    display: inline;
+    width: 22.5%;
+    margin-right: 2.5%;
+    margin-bottom: 2em;
+}
+.contain {
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.category_name {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
+.description {
+    font-size: 2.5em;
+}
+.meal_name {
+    
 }
