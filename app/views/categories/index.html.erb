@@ -15,7 +15,7 @@
             <div class="navbar-nav">
                 <span class="nav-item nav-link" href="#">Pedidos <span class="sr-only">(current)</span></span>
                 <span class="nav-item nav-link " href="#">Usuários</span>
-                <span class="nav-item " href="#"><%= link_to  "Refeições", meals_path, class: "nav-link" %></span>
+                <span class="nav-item nav-link" href="#">Refeições</span>
                 <span class="nav-item nav-link active" href="#">Categorias de Refeição</span>
             </div>
         </div>
@@ -34,10 +34,9 @@
             </thead>
             <tbody>
                 <% @categories.each do |category| %>
-                    <% i = quantidade(category) %>
                     <tr>    
                         <td class =""><%=category.name%></td>
-                        <td class =""><%= i %></td>
+                        <td class ="">Número de Refeições</td>
                         <td class =""><%=category.created_at.strftime('%d/%m/%y')%></td>
                         <td class =""></td>
                         <td class ="ed font-weight-bold yellow"><%= link_to  "editar", edit_category_path(category) %></td>
@@ -48,11 +47,7 @@
             </tbody>
         </table>
         <%= button_to "criar nova categoria", new_category_path, :method => "get", class: "btn btn-success" %>
-    <br>
-    <br>
-    <br>
     </div>
-    
     <div class = "footer">
         <span class = "fotd">dinnerdash | todos os direitos reservados</span><span class = "develop">desenvolvido por Yuri Crystian Ribeiro e Silva</span>
     </div>
