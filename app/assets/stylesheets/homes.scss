@@ -16,7 +16,7 @@
 
 }
 .contain {
-    justify-content: space-between;
+    justify-content: flex-start;
     flex-wrap: wrap;
 }
 .category_name {
@@ -27,15 +27,18 @@
     font-size: 2.5em;
 }
 .meal_name {
-    background-color: gray;
+    background-color: (rgba(0, 0, 0, 0.35));
     color: white;
-    margin-left: 7.5%;
+    width: 100%;
 }
 .dark{
-    
     width: 100%;
     background-color: rgba(0, 0, 0, 0.35);
 }
+.espaco_name{
+    margin-left: 7.5%;
+}
+
 
 .over{
     padding-top: 90px;
