@@ -1,0 +1,49 @@
+// Place all the styles related to the Homes controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.img_root {
+    background-image: url(jay-wennington-2065.jpg);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+
+    height: 45vh;
+    width: 100%;
+}
+.cards {
+    width: 22.5%;
+    margin-right: 2.5%;
+    margin-bottom: 2em;
+
+}
+.contain {
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+.category_name {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
+.description {
+    font-size: 2.5em;
+}
+.meal_name {
+    background-color: (rgba(0, 0, 0, 0.35));
+    color: white;
+    width: 100%;
+}
+.dark{
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.35);
+
+}
+.espaco_name{
+    margin-left: 7.5%;
+}
+
+
+
+.over{
+    padding-top: 90px;
+    padding-left: 0;
+    padding-right: 0;
+}
