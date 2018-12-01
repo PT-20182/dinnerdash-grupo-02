@@ -27,14 +27,19 @@
     font-size: 2.5em;
 }
 .meal_name {
-    background-color: rgba(0, 0, 0, 0.35);
-    width: 100%;
+    background-color: (rgba(0, 0, 0, 0.35));
     color: white;
-    
+    width: 100%;
 }
-.espaco_name {
+.dark{
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.35);
+
+}
+.espaco_name{
     margin-left: 7.5%;
 }
+
 
 
 .over{
