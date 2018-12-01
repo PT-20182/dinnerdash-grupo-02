@@ -1,7 +1,8 @@
 class CategoriesController < ApplicationController
+  helper CategoriesHelper
   before_action :current_category, only:[:show, :edit, :update, :destroy]
-
   def index
+    @meals = Meal.all
     @categories = Category.all
   end
 
@@ -13,7 +14,7 @@ class CategoriesController < ApplicationController
   end
 
   def create
-	category = Category.create(category_params)
+	  category = Category.create(category_params)
     
     redirect_to categories_path
   end

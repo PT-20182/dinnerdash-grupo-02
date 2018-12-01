@@ -1,2 +1,48 @@
-<h1>Meals#index</h1>
-<p>Find me in app/views/meals/index.html.erb</p>
+<div class = "d-flex flex-column cont">
+    <div class = "img">
+        <div class = "escurinho">
+            <div class = "whi">dinnerdash</div>
+            <span class = "top-right"><span class = "top-r yellow">backoffice</span><span class = "top-r">perfil</span><span class = "top-r">sair</span></span>
+            <div class = "Back">Backoffice</div>
+            <div class = "ger">Gerencie pedidos, refeições e mais</div>
+        </div>
+    </div>
+    <nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark nav">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <span class="nav-item nav-link" href="#">Pedidos <span class="sr-only">(current)</span></span>
+                <span class="nav-item nav-link " href="#">Usuários</span>
+                <span class="nav-item nav-link active" href="#">Refeições</span>
+                <span class="nav-item " href="#"><%= link_to  "Categorias de Refeição", categories_path, class: "nav-link" %></span>
+            </div>
+        </div>
+    </nav>
+    <div class = "container">
+        <div class = "d-flex flex-row contain">	
+            <%@meals.each do |meal|%>
+                <div class="card cards">
+                <%= image_tag(meal.image, class: "card-img-top")%>
+                    <div class = "card-img-overlay d-flex align-items-center over">
+                        <div class = "dark">
+                            <h6 class="card-title meal_name"><%= meal.name %></h6>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-text description"><%= meal.description %></h5>
+                        <h5>R<%=number_to_currency(meal.price) %> por porção </h5>
+                        <h6>Quantidade</h6>
+                        <a href="#" class="btn btn-success">Go somewhere</a>
+                    </div>
+                </div>
+            <% end %>
+        </div>
+    </div>
+        <%= button_to "criar nova refeição", new_meal_path, :method => "get", class: "btn btn-success" %>
+    </div>
+    <div class = "footer">
+        <span class = "fotd">dinnerdash | todos os direitos reservados</span><span class = "develop">Design por Yuri Silva, Backend por Bruno Sanguinetti</span>
+    </div>
+</div>
