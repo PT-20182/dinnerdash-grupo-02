@@ -15,8 +15,12 @@
 					<%if(meal.category_id == category.id)%>
 						<div class="card cards">
 						<%= image_tag(meal.image, class: "card-img-top")%>
+							<div class = "card-img-overlay d-flex align-items-center over">
+								<div class = "dark">
+									<h6 class="card-title meal_name"><%= meal.name %></h6>
+								</div>
+							</div>
 							<div class="card-body">
-								<h1 class="card-img-overlay"><%= meal.name %></h1>
 								<h5 class="card-text description"><%= meal.description %></h5>
 								<h5>R<%=number_to_currency(meal.price) %> por porção </h5>
 								<h6>Quantidade</h6>
@@ -28,7 +32,7 @@
 			</div>
 		<% end %>
 	</div>
-	
+
 
 
 
