@@ -1,13 +1,19 @@
-<div class = "d-flex flex-column">
     <div class = "img_root">
-        <div class = "escurinho">
-            <div class = "whi">dinnerdash</div>
-            <span class = "top-right"><span class = "top-r yellow">backoffice</span><span class = "top-r">perfil</span><span class = "top-r">sair</span></span>
-            <div class = "Back">Monte o seu prato</div>
-            <div class = "ger">Escolha sua salada, molho, prato principal, guarnição e bebida</div>
-        </div>
-    </div>
-	<div class = "container">
+		<div class = "painel container-fluid">
+
+			<div class = "text-white d-flex flex-grow justify-content-between flex-shrink"> 
+				<span class="small_logo">Dinnerdash</span>
+				<span class="d-flex">
+					<label class="small_text">entrar</label>
+					<label class="small_text">cadastro</label>
+				</span>
+			</div>
+			<div class="container">
+				<h1 class = "text-white font-weight-normal home_title h1">Monte o seu prato</h1>
+				<h3 class = "text-white font-weight-light home_subtitle h3">Escolha sua salada, molho, prato principal, guarnição e bebida</h3>
+			</div>	
+		</div>	
+	<div class = "container teste">
 		<%@categories.each do |category| %>
 			<h1 class = "category_name"><%=category.name%></h1>
 			<div class = "d-flex flex-row contain">	

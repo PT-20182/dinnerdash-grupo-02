@@ -1,4 +1,5 @@
 class Order < ApplicationRecord
+    validates: :price, presence: true, numericality: { greater_than: 0 }
     has_one :situation
     has_many :order_meals
     belongs_to :user
@@ -16,7 +17,7 @@ class Order < ApplicationRecord
         end
 
     def update_subtotal
-        self[:subtotal] = subtotal
+        self[:price] = price
     end
 
 end

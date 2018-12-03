@@ -3,12 +3,57 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .img_root {
     background-image: url(jay-wennington-2065.jpg);
-    background-size: 100% 100%;
+    background-size: cover;
     background-repeat: no-repeat;
+    background-position: center center;
 
-    height: 45vh;
+
+    height: 60vh;
     width: 100%;
 }
+
+.teste{
+    margin-top: 1%; 
+}
+.painel{
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.363);
+    margin-left: 0;
+    margin-right: 0;
+    position: relative;
+    min-width: 10%;
+}
+.small_logo {
+    font-size: 1.5vw;      
+    position: relative;
+}
+
+.small_text {
+    font-size: 1vw;
+    margin-right: 15%; 
+    float: right;
+    position: relative;  
+    right: 15%;    
+}
+.top-right {
+    color: white;
+    font-size: 8vw;
+    flex: flex-end;
+}
+.home_title{
+    font-family: 'Quicksand', sans-serif;
+    font-size: 6vw;
+    position: absolute;
+    bottom: 10%;
+}
+.home_subtitle{
+    font-family: 'Quicksand', sans-serif;
+    font-size: 2vw;
+    position: absolute;
+    bottom: 0%;
+}
+
 .cards {
     width: 22.5%;
     margin-right: 2.5%;
