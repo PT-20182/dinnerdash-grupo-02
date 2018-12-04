@@ -147,25 +147,24 @@ td {
     padding-left: 4em;
 }
 .footer {
-    position: fixed;
-    font-size: 2em;
     left: 0;
     bottom: 0;
-    height: 2em;
     width: 100%;
-    background-color: #DEE2E6;
-    color: black;
-    text-align: left;
+    height: 5%;
+    background-color: rgba(222, 226, 230, 0.425);
+    margin-bottom: 0%;
+    font-weight: italic; 
+    color: black; 
+    font-size: calc(7px + .5vw);
 }
-.fotd {
-    padding-left: 12em;
-    font-size: 90%;
-    font-weight: bold;
+
+.footer_right_credits {
+    float: right;
+    margin-right: 2%;
 }
-.develop {
-    font-weight: bold;
-    font-size: 90%;
-    padding-left: 45em;
+.footer_left_credits {
+    float: left;
+    margin-left: 2%;
 }
 .botao_tr {
     border-bottom: white;

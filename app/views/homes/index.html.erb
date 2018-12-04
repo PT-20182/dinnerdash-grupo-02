@@ -1,49 +1,57 @@
-    <div class = "img_root">
-		<div class = "painel container-fluid">
+<!--<div class = "img_root">
+	<div class = "painel container-fluid">
+		<div class = "text-white d-flex flex-grow justify-content-between flex-shrink"> 
+			<span class="small_logo">Dinnerdash</span>
+			<span class="d-flex">
+				<label class="small_text">entrar</label>
+				<label class="small_text">cadastro</label>
+			</span>
+		</div>
+		<div class="title position-absolute">
+			<h1 class = "fixed-bottom position-absolute text-left text-white font-weight-normal home_title h1">Monte o seu prato</h1>
+			<h3 class = "fixed-bottom position-absolute text-left text-white font-weight-normal home_subtitle h3">bblabalbalablablabalbalablabalab</h3>
+		</div>-->
+<header class="container-fluid header text-white font">
+<div class="painel">
+	<header class="upper_header">
+		<label class="upper_h2">dinnerdash</label>
+	</header>
+		<header class="fixed-top upper_header">	
+			<label class="float-right ">entrar</label>
+			<label class="upper_header float-right ">cadastro</label>
+		</header>
 
-			<div class = "text-white d-flex flex-grow justify-content-between flex-shrink"> 
-				<span class="small_logo">Dinnerdash</span>
-				<span class="d-flex">
-					<label class="small_text">entrar</label>
-					<label class="small_text">cadastro</label>
-				</span>
-			</div>
-			<div class="container">
-				<h1 class = "text-white font-weight-normal home_title h1">Monte o seu prato</h1>
-				<h3 class = "text-white font-weight-light home_subtitle h3">Escolha sua salada, molho, prato principal, guarnição e bebida</h3>
-			</div>	
-		</div>	
-	<div class = "container teste">
-		<%@categories.each do |category| %>
-			<h1 class = "category_name"><%=category.name%></h1>
-			<div class = "d-flex flex-row contain">	
-				<%@meals.each do |meal|%>
-					<%if(meal.category_id == category.id)%>
-						<div class="card cards">
-						<%= image_tag(meal.image, class: "card-img-top")%>
-							<div class = "card-img-overlay d-flex align-items-center over">
-
-								<h6 class="card-title meal_name"><span class = "espaco_name"><%= meal.name %></span></h6>
-							</div>
-							<div class="card-body">
-								<h5 class="card-text description"><%= meal.description %></h5>
-								<h5>R<%=number_to_currency(meal.price) %> por porção </h5>
-								<h6>Quantidade</h6>
-								<a href="#" class="btn btn-success">Go somewhere</a>
-							</div>
-						</div>
-					<% end %>
-				<% end %>
-			</div>
-		<% end %>
+	<header class="lower_header">
+		<h1 class="home_title">Monteu seu prato</h1>
+		<h3 class="home_subtitle">ronalds mcdonals vende crack pra crianca</h3>
+	</header>
 	</div>
-
-
-
-
-    
-
-    <div class = "footer fot">
-        <span class = "fotd">dinnerdash | todos os direitos reservados</span><span class = "develop">Design por Yuri Silva, Backend por Bruno Sanguinetti</span>
-    </div>
+</header>
+<div class="content container">
+	<%@categories.each do |category| %>
+		<h1 class = "category_name"><%=category.name%></h1>
+		<div class = "d-flex flex-row contain">	
+			<%@meals.each do |meal|%>
+				<%if(meal.category_id == category.id)%>
+					<div class="card cards">
+					<%= image_tag(meal.image, class: "card-img-top")%>
+						<div class = "card-img-overlay d-flex align-items-center over">
+							<h6 class="card-title meal_name"><span class = "espaco_name"><%= meal.name %></span></h6>
+						</div>
+						<div class="card-body">
+							<h5 class="card-text description"><%= meal.description %></h5>
+							<h5>R<%=number_to_currency(meal.price) %> por porção </h5>
+							<h6>Quantidade</h6>
+							<a href="#" class="btn btn-success">Go somewhere</a>
+						</div>
+					</div>
+				<% end %>
+				<% end %>
+		</div>
+	<% end %>
+</div>
+ <!--   <footer class = "footer position-relative font">
+        <span class="footer_left_credits"><b>dinnerdash</b> | todos os direitos reservados</span>
+							<span class="footer_right_credits">design e beckend <b>Bruno Sanguinetti</b> e <b>Yuri Silva</b></span>
+    </footer>
 </div>
