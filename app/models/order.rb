@@ -1,5 +1,5 @@
 class Order < ApplicationRecord
-    validates: :price, presence: true, numericality: { greater_than: 0 }
+    validates :price, presence: true, numericality: { greater_than: 0 }
     has_one :situation
     has_many :order_meals
     belongs_to :user

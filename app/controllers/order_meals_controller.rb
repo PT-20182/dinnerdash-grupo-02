@@ -3,44 +3,43 @@ class OrderMealsController < ApplicationController
 
 
 	def index
-	  @order_meals = Order_Meal.all
+		@order_meals = OrderMeal.all
 	end
-  
+
 	def show
 	end
-  
+
 	def new
-		@order_meal = Order_Meal.new
 	end
-  
+
 	def create
-	  order_meal = Order_Meal.create(order_meal_params)
-	  
-	  redirect_to order_meals_path
+		@order = current_order
+		@order_meal = @order.order_meals.new(order_meal_params)
+		@order.save
+		session[:order_id] = @order.id
 	end
-	
+
 	def edit
 	end
-  
+
 	def update
-	  @order_meal.update(order_meal_params)
-  
-	  redirect_to order_meals_path
+		@order = current_order
+		@order_meal = @order.order_meals.find(params[:id])
+		@order_meal.update_attributes(order_meals_params)
+		@order_meals = @order.order_meals
 	end
-  
+
 	def destroy 
-	  @order_meal.destroy
-  
-	  redirect_to order_meals_path
+		@order = current_order
+		@order_meal = @order.order_meals.find(params[:id])
+		@order_meal.destroy
+		@order_items = @order.order_items
+	end
+
+	private
+
+	def order_meal_params
+		params.require(:order_meal).permit(:quantity, :meal_id)
 	end
 	
-	private
-  
-	def order_meal_params
-	  params.require(:order_meal).permit(:quantity)
-	end
-  
-	def current_meal
-	  @order_meal = Order_Meal.find(params[:id])
-	end
 end

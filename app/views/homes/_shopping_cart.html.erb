@@ -1,0 +1,18 @@
+<% if !@order_meal.nil? && @order_meal.errors.any? %>
+  <div class="alert alert-danger">
+    <ul>
+    <% @order_meal.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+<% if @order_meals.size == 0 %>
+  <p class="text-center">
+    There are no meals in your shopping cart.  Please <%= link_to "go back", root_path %> and add some meals to your cart.
+  </p>
+<% else %>
+  <% @order_meals.each do |order_meal| %>
+    <%= render 'carts/cart_row', meal: order_meal.meal, order_meal: order_meal, show_total: true %>
+  <% end %>
+<% end %>

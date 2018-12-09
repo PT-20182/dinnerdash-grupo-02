@@ -5,6 +5,7 @@ class MealsController < ApplicationController
 	def index
 		@meals = Meal.all
 		@categories = Category.all
+		@order_meal = current_order.order_meals.new
 	end
   
 	def show
