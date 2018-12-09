@@ -2,6 +2,21 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.header_backoffice{
+    height: 60vh;
+    width: 100vw;
+    background-image: url(helloquence-61189.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    display: flex;
+    justify-content: space-between;
+    padding: 0%;
+    margin: 0%;
+    min-width: 300px;
+    min-width: 300px;
+}
+
 .labels {
     padding-top: 1em;
     font-size: 1.3em;
@@ -21,7 +36,9 @@
 }
 
 .nav_meal {
-    min-height: 2em;
+    font-size: 12px;
+    margin: 2px;
+    padding: 0;
 }
 .fot {
     position: relative;

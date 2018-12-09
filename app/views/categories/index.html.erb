@@ -1,12 +1,18 @@
-<div class = "d-flex flex-column cont">
-    <div class = "img">
-        <div class = "escurinho">
-            <div class = "whi">dinnerdash</div>
-            <span class = "top-right"><span class = "top-r yellow">backoffice</span><span class = "top-r">perfil</span><span class = "top-r">sair</span></span>
-            <div class = "Back">Backoffice</div>
-            <div class = "ger">Gerencie pedidos, refeições e mais</div>
+
+    <header class="container-fluid header_backoffice text-white font">
+    <div class="painel">
+	<header class="upper_header">
+		<label class="upper_h2">dinnerdash</label>
+		<span><label class="float-right ">entrar</label>
+		<label class="upper_header float-right ">cadastro</label></span>
+		</header>
+
+        <div class="lower_header fixed-bottom">
+            <h1 class="home_title"s>Backoffice</h1>
+            <h3 class="home_subtitle">Gerencie pedidos, refeições e mais.</h3>
         </div>
-    </div>
+</div>
+    </header>
     <nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark nav">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -14,14 +20,14 @@
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav nav_meal">
                 <span class="nav-item nav-link" href="#">Pedidos <span class="sr-only">(current)</span></span>
-                <span class="nav-item nav-link " href="#">Usuários</span>
-                <span class="nav-item " href="#"><%= link_to  "Refeições", meals_path, class: "nav-link" %></span>
-                <span class="nav-item nav-link active" href="#">Categorias de Refeição</span>
+                <span class="nav-item nav-link" href="#">Usuários</span>
+                <span class="nav-item nav-link active" href="#">Refeições</span>
+                <span class="nav-item " href="#"><%= link_to  "Categorias de Refeição", categories_path, class: "nav-link" %></span>
             </div>
         </div>
     </nav>
-    <div class = "container-fluid tab">
-        <table class="table categories">
+    <div class="container content">
+       <table class="table categories">
             <thead class="gray">
             <tr>
                 <th scope="col">Nome</th>
@@ -52,8 +58,3 @@
     <br>
     <br>
     </div>
-    
-    <div class = "footer fot">
-        <span class = "fotd">dinnerdash | todos os direitos reservados</span><span class = "develop">desenvolvido por Yuri Crystian Ribeiro e Silva</span>
-    </div>
-</div>
