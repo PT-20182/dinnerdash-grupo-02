@@ -26,7 +26,37 @@
             </div>
         </div>
     </nav>
-    <div class="container content">
+    <div class="container font">
+	<%@categories.each do |category| %>
+		<% i = quantidade(category) %>
+		<% if i > 0 %>
+			<h1 class = "category_name"><b><%=category.name%><b></h1>
+			<div class = "d-flex flex-row contain">	
+				<%@meals.each do |meal|%>
+					<%if(meal.category_id == category.id)%>
+						<div class="card cards_backoffice">
+							<%= image_tag(meal.image, class: "card-img-top")%>
+								<div class = "card-img-overlay over_backoffice">
+									<h6 class="card-title meal_name_backoffice"><span class = "espaco_name"><%= meal.name %></span></h6>
+								</div>
+							<div class="card-body position-relative">
+								<h5 class="card-text description position-relative"><%= meal.description %></h5>
+								<h5 class="text-success">R<%=number_to_currency(meal.price) %> por porção </h5>
+								<div class = "d-flex flex-row justify-content-between flex_bot">
+                                <%= button_to  "Editar", edit_meal_path(meal), :method => "get", class: "btn btn-warning botoes_ref editar" %> 
+                                <%= button_to  "Excluir", meal, method: :delete, data: { confirm: 'você tem certeza?'}, class: "btn btn-danger botoes_ref exc"  %>
+                            </div>
+							</div>
+						</div>
+					<% end %>
+				<% end %>
+		<% end %>
+		</div>
+	<% end %>
+            <%= button_to "criar nova refeição", new_meal_path, :method => "get", class: "btn btn-success" %>
+</div>
+
+    <!--<div class="container content">
     <h1 class = "category_name"></h1>
     <div class = "container">
         <div class = "d-flex flex-row contain">	
@@ -56,6 +86,5 @@
             <% end %>
         </div>
 
-        <%= button_to "criar nova refeição", new_meal_path, :method => "get", class: "btn btn-success" %>
 	</div>
-    </div>
+    </div>-->

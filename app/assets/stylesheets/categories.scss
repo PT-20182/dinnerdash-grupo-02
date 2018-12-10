@@ -55,10 +55,29 @@ td {
 }
 .editar{
     color:  #FDDF4C;
-    padding-right: 30px;
 }
-.excluir {
+.exc {
     color: #E82431;
+}
+.meal_name_backoffice {
+    background-color: (rgba(0, 0, 0, 0.35));
+    color: white;
+    width: 100%;
+    padding-top: 6px;
+}
+.over_backoffice{
+    position: absolute;
+    top: 56%;
+    padding: 0;
+}
+.cards_backoffice {
+    position: relative;
+    word-wrap: break-all;
+    width: 255px;
+    height: 400px;
+    margin-right: 2%;
+    margin-bottom: 2em;
+
 }
 .itens_pedido {
     padding-right: 30px;

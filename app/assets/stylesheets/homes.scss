@@ -89,12 +89,13 @@ bottom: 15%;
     position: relative;
     word-wrap: break-all;
     width: 240px;
-    height: 400px;
+    height: 460px;
     margin-right: 2.5%;
     margin-bottom: 2em;
 
 }
 .contain {
+    align-items: space-evenly;
     justify-content: flex-start;
     flex-wrap: wrap;
 }
@@ -110,6 +111,8 @@ bottom: 15%;
     background-color: (rgba(0, 0, 0, 0.35));
     color: white;
     width: 100%;
+    height: 15%;
+    padding-top: 6px;
 }
 .dark{
     width: 100%;
@@ -120,15 +123,25 @@ bottom: 15%;
     font-size: 1.4rem;
     margin-left: 7.5%;
 }
-
+.margin_cart_text{
+    color: rgba(70, 70, 77, 0.863);
+    margin-bottom: 0;
+}
 .img_overlay_container{
     position: relative ;
     width: 100vw;
     height: 100vh;
 }
-
 .over{
     position: absolute;
-    top: 50%;
+    top: 43.5%;
     padding: 0;
+}
+
+.card_checkout_box{
+    width: 40%;
+    height: auto;
+}
+.button_size{
+    width: auto;
 }
