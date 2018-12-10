@@ -1,7 +1,7 @@
 // Place all the styles related to the Categories controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-* {
+*{
     box-sizing: border-box;
 }
 .img {
@@ -123,33 +123,62 @@ td {
 }
 .whi {
     color: white;
-    font-size: 2.5em;
-    padding-left: 4em;
-    padding-top: 2em;
-    display: inline;
+    font-size: 3em;
+    padding-left: 3.4em;
+    padding-top: 1em;
 }
 .Back {
     color: white;
     font-size: 10em;
-    padding-top: 1.7em;
+    padding-top: 1.4em;
     padding-left: 1em;
+}
+.Back1 {
+    color: white;
+    font-size: 9em;
+    padding-top: 1.4em;
+    padding-left: 1.1em;
 }
 .ger {
     color: white;
-    font-size: 3.4em;
-    padding-left: 3.1em;
+    font-size: 3em;
+    padding-left: 3.5em;
+}
+.contai1{
+    display: flex;
+    font-size: 2.5em;
+    width: 800px;
+}
+
+
+.contai{
+    display:flex;
+    justify-content: space-between;
 }
 .top-right {
     color: white;
-    font-size: 1.8em;
-    padding-left: 84em;
+    font-size: 2em;
     padding-top: 2em;
+    padding-right: 6em;
 }
+
 .top-r {
     padding-left: 2em;
 }
 .yellow {
     color: yellow;
+}
+.link_top{
+    text-decoration: none;
+    color: white;
+}
+.link_top a:hover{
+    text-decoration: none;
+    color: white;
+}
+.link_top a:link{
+    text-decoration: none;
+    color: white;
 }
 .ed a:link { 
     color: yellow;

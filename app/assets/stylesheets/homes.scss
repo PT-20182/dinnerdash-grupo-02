@@ -52,6 +52,17 @@
 .small_logo {
     font-size: 5vw;;      
     position: relative;
+    background-size: 100% 135%;
+    background-repeat: no-repeat;
+    height: 45vh;
+    width: 100%;
+}
+.img_root1 {
+    background-image: url(restaurant.jpeg);
+    background-size: 100% 122%;
+    background-repeat: no-repeat;
+    height: 45vh;
+    width: 100%;
 }
 .bug{
     padding: 0;
