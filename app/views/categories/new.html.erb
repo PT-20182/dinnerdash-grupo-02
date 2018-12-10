@@ -1,25 +1,6 @@
-<div class = "d-flex flex-column cont">
-    <div class = "img">
-        <div class = "escurinho">
-            <div class = "whi">dinnerdash</div>
-            <span class = "top-right"><span class = "top-r yellow">backoffice</span><span class = "top-r">perfil</span><span class = "top-r">sair</span></span>
-            <div class = "Back">Backoffice</div>
-            <div class = "ger">Gerencie pedidos, refeições e mais</div>
-        </div>
-    </div>
-    <nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark nav">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav">
-                <span class="nav-item nav-link" href="#">Pedidos <span class="sr-only">(current)</span></span>
-                <span class="nav-item nav-link " href="#">Usuários</span>
-                <span class="nav-item " href="#"><%= link_to  "Refeições", meals_path, class: "nav-link" %></span>
-                <span class="nav-item nav-link active" href="#">Categorias de Refeição</span>
-            </div>
-        </div>
-    </nav>
+<%= render  "layouts/painel_categories" %>
+<%= render  "nav_categories" %>
+
     <div class = "container-fluid form tab">
 		<div class ="new_cat">Nova categoria de refeição</div>
         <%= form_with model: @category do |form| %>

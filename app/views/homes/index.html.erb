@@ -1,17 +1,4 @@
-<header class="container-fluid header text-white font">
-<div class="painel">
-	<header class="upper_header">
-		<label class="upper_h2">dinnerdash</label>
-		<label class="float-right ">entrar</label>
-		<label class="upper_header float-right ">cadastro</label>
-		</header>
-
-	<header class="lower_header fixed-bottom">
-		<h1 class="home_title">Monteu seu prato</h1>
-		<h3 class="home_subtitle">Escolha sua salada, molho, prato principal, guranicao e bebida</h3>
-	</header>
-	</div>
-</header>
+<%= render  "layouts/painel_homes" %>
 <div class="container">
 	<%@categories.each do |category| %>
 		<% i = quantidade(category) %>
@@ -37,4 +24,10 @@
 		<% end %>
 		</div>
 	<% end %>
+</div>
+<div>
+     <footer class = "footer position-relative font">
+        <span class="footer_left_credits"><b>dinnerdash</b> | todos os direitos reservados</span>
+        <span class="footer_right_credits">design e beckend <b>Bruno Sanguinetti</b> e <b>Yuri Silva</b></span>
+    </footer>
 </div>
