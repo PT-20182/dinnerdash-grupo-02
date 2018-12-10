@@ -17,18 +17,19 @@
 								<h5 class="card-text description position-relative"><%= meal.description %></h5>
 								<h5 class="text-success">R<%=number_to_currency(meal.price) %> por porção </h5>
 								<div class = "d-flex flex-row justify-content-between flex_bot">
-                                <%= button_to  "Editar", edit_meal_path(meal), :method => "get", class: "btn btn-warning botoes_ref editar" %> 
-                                <%= button_to  "Excluir", meal, method: :delete, data: { confirm: 'você tem certeza?'}, class: "btn btn-danger botoes_ref exc"  %>
-                            </div>
+                                    <%= button_to  "Editar", edit_meal_path(meal), :method => "get", class: "btn btn-warning botoes_ref editar" %> 
+                                    <%= button_to  "Excluir", meal, method: :delete, data: { confirm: 'você tem certeza?'}, class: "btn btn-danger botoes_ref exc"  %>
+                                </div>
 							</div>
 						</div>
 					<% end %>
 				<% end %>
-		<% end %>
-		</div>  
+            </div>
+		<% end %> 
 	<% end %>  
     <%= button_to "criar nova refeição", new_meal_path, :method => "get", class: "btn btn-success" %>   
-    </div>       
+</div>       
+<hr>
     <!--<div class="container content">
     <%= render  "layouts/painel_categories" %>
     <%= render  "nav_meals" %>
