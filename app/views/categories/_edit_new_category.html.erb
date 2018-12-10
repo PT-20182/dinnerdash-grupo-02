@@ -1,8 +1,7 @@
-<div class = "container">
+<div class = "container mb-5 mt-5 pb-5">
         <%= form_with model: @category do |form| %>
             <%= form.text_field :name, class: "form-control mt-4 mb-4", placeholder: "Nome"%>
             <%= form.submit "Criar nova categoria", class: "btn btn-success"%>
             <%= button_to "Voltar" , categories_path, :method => "get", class: "btn btn-outline-warning"%>
         <% end %>
-    </div>
 </div>

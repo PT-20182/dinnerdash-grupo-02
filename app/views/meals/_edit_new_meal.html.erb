@@ -1,12 +1,14 @@
 <%= render  "layouts/painel_categories" %>
 <%= render  "nav_meals" %>
-<div class="container content font">
-	<% if edit == 0  %>
+<div class="container content font mb-5">
+	<div class="mb-4 mt-4">
+    <% if edit == 0  %>
 		<div class ="new_cat">Nova refeição</div>
 	<% else %>
 		<div class ="new_cat">Atualizar refeição</div>
 	<% end %>
-		
+    </div>
+
 <%= form_with model: @meal do |form| %>
   <div class="form-row">
     <div class="form-group col-md-6">
@@ -42,4 +44,5 @@
 			<% end %>
         </div>
     <% end %>
+    </div>	
 </div>
