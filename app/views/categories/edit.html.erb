@@ -1,15 +1,3 @@
 <%= render  "layouts/painel_categories" %>
 <%= render  "nav_categories" %>
-    <div class = "container-fluid form tab">
-		<div class ="new_cat">Editar categoria de refeição</div>
-        <%= form_with model: @category do |form| %>
-			<label class = "nome">Nome</label>
-			<div class ="input"><%= form.text_field :name%></div>
-
-			<button class = "btn btn-success botao space"><% form.submit %>atualizar</button><button class = "btn botao voltar"><%= link_to  "voltar", categories_path %> </button>
-        <% end %>
-    </div>
-    <div class = "footer fot">
-        <span class = "fotd">dinnerdash | todos os direitos reservados</span><span class = "develop">desenvolvido por Yuri Crystian Ribeiro e Silva</span>
-    </div>
-</div>
+<%= render  "edit_new_category" %>
