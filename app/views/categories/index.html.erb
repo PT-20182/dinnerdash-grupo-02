@@ -3,8 +3,10 @@
     <div class="painel">
 	<header class="upper_header">
 		<label class="upper_h2">dinnerdash</label>
-		<span><label class="float-right ">entrar</label>
-		<label class="upper_header float-right ">cadastro</label></span>
+        
+		<span><label class = " upper_header float-right">sair</label>
+        <label class="upper_header float-right ">perfil</label>
+		<label class="text-warning upper_header float-right ">backoffice</label></span>
 		</header>
 
         <div class="lower_header fixed-bottom">
@@ -21,8 +23,8 @@
             <div class="navbar-nav nav_meal">
                 <span class="nav-item nav-link" href="#">Pedidos <span class="sr-only">(current)</span></span>
                 <span class="nav-item nav-link" href="#">Usuários</span>
-                <span class="nav-item nav-link active" href="#">Refeições</span>
-                <span class="nav-item " href="#"><%= link_to  "Categorias de Refeição", categories_path, class: "nav-link" %></span>
+                <span class="nav-item  " href="#"><%= link_to  "Refeições", meals_path, class: "nav-link" %></span>
+                <span class="nav-item nav-link active" href="#">Categorias de Refeição</span>
             </div>
         </div>
     </nav>
