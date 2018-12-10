@@ -1,11 +1,8 @@
-<div class = "container-fluid form tab">
-	<div class ="new_cat">Nova categoria de refeição</div>
+<div class = "container">
         <%= form_with model: @category do |form| %>
-			<label class = "nome">Nome</label>
-            <div class ="input"><%= form.text_field :name%></div>
-
-			<button class = "btn btn-success botao space"><% form.submit %>criar categoria de refeição</button><button class = "btn botao voltar"><%= link_to  "voltar", categories_path %> </button>
+            <%= form.text_field :name, class: "form-control mt-4 mb-4", placeholder: "Nome"%>
+            <%= form.submit "Criar nova categoria", class: "btn btn-success"%>
+            <%= button_to "Voltar" , categories_path, :method => "get", class: "btn btn-outline-warning"%>
         <% end %>
-          
     </div>
 </div>
