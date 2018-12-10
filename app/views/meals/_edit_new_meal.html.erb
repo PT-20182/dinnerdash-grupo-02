@@ -1,48 +1,56 @@
 <%= render  "layouts/painel_categories" %>
 <%= render  "nav_meals" %>
-<div class="container content font mb-5">
+<div class="container font mb-5">
 	<div class="mb-4 mt-4">
-    <% if edit == 0  %>
-		<div class ="new_cat">Nova refeição</div>
-	<% else %>
-		<div class ="new_cat">Atualizar refeição</div>
-	<% end %>
+        <% if edit == 0  %>
+		    <div class ="new_cat">Nova refeição</div>
+	    <% else %>
+		    <div class ="new_cat">Atualizar refeição</div>
+	    <% end %>
     </div>
 
-<%= form_with model: @meal do |form| %>
-  <div class="form-row">
-    <div class="form-group col-md-6">
-      <%= form.text_field :name, class: "form-control", id: "mealName", placeholder: "Nome"%>
-    </div>
-        <div class="form-group col-md-4">
-        <%= form.select :category_id, @categories.collect { |category| [category.name, category.id]}, {}, {:class => "form-control", :id => "inputCategory"}%>
-    </div>
-  </div>
-  <div class="form-row justify-content-start">
-      <div class="form-group col-md-2">
-        <%= form.text_field :price, class: "form-control", id: "inputPrice", placeholder: "Preço"%>
-    </div>
-        <div class="form-group col-md-8 custom-file">
-        <%= form.file_field :image, class: "custom-file-input", id: "validatedCustomFile"%>
-        <label class="custom-file-label" for="validatedCustomFile">Escolha uma Imagem</label>
-    </div>
-  </div>
-  <div class="form-row">
-    <div class="form-group col-md-6">
-        <label for="exampleFormControlTextarea1">Descrição</label>
-        <%= form.text_area :description, class: "form-control", id: "exampleFormControlTextareal", rows: "3"%>
-    </div>
-         <div class="form-check col-md-2 mt-4 mr-3 ml-4 align-middle">
-             <%= form.check_box :available, class: "form-check-input", id: "gridCheck"%>
-            <label class="form-check-label" for="gridCheck">
-                 Disponivel?
-            </label>
-			<% if edit == 0  %>
-            	<%= form.submit "Criar refeição" , class: "btn btn-success mt-4"%>
-			<% else %>
-				<%= form.submit "Atualizar refeição" , class: "btn btn-success mt-4"%>
-			<% end %>
+    <%= form_with model: @meal do |form| %>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <%= form.text_field :name, class: "form-control", id: "mealName", placeholder: "Nome"%>
+            </div>
+            <div class="form-group col-md-4">
+                <%= form.select :category_id, @categories.collect { |category| [category.name, category.id]}, {}, {:class => "form-control", :id => "inputCategory"}%>
+            </div>
         </div>
+        <div class="form-row justify-content-start">
+            <div class="form-group col-md-2">
+                <%= form.text_field :price, class: "form-control", id: "inputPrice", placeholder: "Preço"%>
+            </div>
+            <div class="form-group col-md-8 custom-file">
+                <%= form.file_field :image, class: "custom-file-input", id: "validatedCustomFile"%>
+                <label class="custom-file-label" for="validatedCustomFile">Escolha uma Imagem</label>
+            </div>
+        </div>    
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="exampleFormControlTextarea1">Descrição</label>
+                <%= form.text_area :description, class: "form-control", id: "exampleFormControlTextareal", rows: "3"%>
+            </div>
+            <div class="form-check col-md-2 mt-4 mr-3 ml-4 align-middle">
+                <div class=form-row>
+                    <%= form.radio_button :available, true, class: "form-check-input", id: "gridCheck"%>
+                        <label class="pl-3 form-check-label" for="gridCheck">
+                            Disponivel
+                        </label>
+                </div>
+                <div class=form-row>
+                <%= form.radio_button :available, false, class: "form-check-input", id: "gridCheck"%>
+                     <label class=" pl-3 form-check-label" for="gridCheck">
+                        Indisponivel
+                     </label>
+                </div>
+                <% if edit == 0  %>
+                    <%= form.submit "Criar refeição" , class: "btn btn-success mt-4"%>
+                <% else %>
+                    <%= form.submit "Atualizar refeição" , class: "btn btn-success mt-4"%>
+                <% end %>
+            </div>
+        </div>    
     <% end %>
-    </div>	
 </div>
