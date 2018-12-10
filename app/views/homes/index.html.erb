@@ -18,15 +18,11 @@
 								<div class="form-group">
 									<label for="exampleFormControlSelect1">Quantidade</label>
 									<select class="form-control" id="exampleFormControlSelect1">
-										<option>1</option>
-										<option>2</option>
-										<option>3</option>
-										<option>4</option>
-										<option>5</option>
-										<option>6</option>
-										<option>7</option>
-										<option>8</option>
-										<option>9</option>
+									<% i = 1 %>
+									<% 10.times do %>
+										<option><%= i %></option>
+										<% i+= 1 %>
+									<% end %>	
 									</select>
 							     </div>
 								<a href="#" class="btn btn-success justify-content-center d-flex">Adicionar ao carrinho</a>
@@ -56,11 +52,11 @@
 		<div class="form-group flex_column">
 			<label for="exampleFormControlSelect1">Quantidade:</label>
 			<select class="form-control max_form" id="exampleFormControlSelect1">
-			<option>1</option>
-			<option>2</option>
-			<option>3</option>
-			<option>4</option>
-			<option>5</option>
+			<% i = 1 %>
+			<% 5.times do %>
+				<option><%= i %></option>
+				<% i+= 1 %>
+			<% end %>	
 			</select>
 			<button type="button" class="btn btn-outline-danger button_size mt-1">Remover</button>
 		</div>
