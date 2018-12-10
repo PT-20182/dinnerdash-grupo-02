@@ -1,43 +1,58 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<div class="tudo_perfil">
+  
+    <div class = "img_root1">
+        <div class = "escurinho">
+          <div class="contai">
+            <div class = "whi">dinnerdash</div>
+            <div class = "top-right"><span class = "top-r"><%= link_to('perfil', edit_user_registration_path, class: "link_top") %></span><span class = "top-r"> <%= link_to "voltar", :back %></span></div>
+          </div>
+            <div class = "Back1">Seu Perfil</div>
+            <div class = "ger">Atualize seus dados pessoais e senha.</div>
+        </div>
+    </div>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+      <%= devise_error_messages! %>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= devise_error_messages! %>
+      <div class="field">
+        <%= f.label :email %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      </div>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+        <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+      <% end %>
 
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
+      <div class="field">
+        <br>
+        <%= f.label :senha %> <i>(deixe em branco se você não quiser alterá-lo)</i><br>
+        <%= f.password_field :senha, autocomplete: "new-password" %>
+        <% if @minimum_password_length %>
+        <br>
+          <em><%= @minimum_password_length %>
+          Caracters minimos</em>
+        <% end %>
+      </div>
 
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
+      <div class="field">
+        <br>
+        <%= f.label :confirme_sua_senha %><br />
+        <%= f.password_field :confirme_sua_senha, autocomplete: "new-password" %>
+      </div>
+
+      <div class="field">
+        <br>
+        <%= f.label :senha_atual %> <i>(Pra confirmar suas alterações)</i><br />
+        <%= f.password_field :senha_atual, autocomplete: "current-password" %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "Salvar" %>
+      </div>
+      <br>
     <% end %>
-  </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Update" %>
-  </div>
-<% end %>
-
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>
+    <h4>Cancelar minha conta</h4>
+    Insatisfeito? 
+    <%= button_to "Cancelar minha conta", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %>
+    <%= link_to "Voltar", :back %>
+</div>

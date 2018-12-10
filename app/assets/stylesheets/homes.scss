@@ -3,9 +3,15 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .img_root {
     background-image: url(jay-wennington-2065.jpg);
-    background-size: 100% 100%;
+    background-size: 100% 135%;
     background-repeat: no-repeat;
-
+    height: 45vh;
+    width: 100%;
+}
+.img_root1 {
+    background-image: url(restaurant.jpeg);
+    background-size: 100% 122%;
+    background-repeat: no-repeat;
     height: 45vh;
     width: 100%;
 }

@@ -118,11 +118,24 @@ td {
     padding-top: 1.4em;
     padding-left: 1em;
 }
+.Back1 {
+    color: white;
+    font-size: 9em;
+    padding-top: 1.4em;
+    padding-left: 1.1em;
+}
 .ger {
     color: white;
     font-size: 3em;
     padding-left: 3.5em;
 }
+.contai1{
+    display: flex;
+    font-size: 2.5em;
+    width: 800px;
+}
+
+
 .contai{
     display:flex;
     justify-content: space-between;
@@ -139,6 +152,18 @@ td {
 }
 .yellow {
     color: yellow;
+}
+.link_top{
+    text-decoration: none;
+    color: white;
+}
+.link_top a:hover{
+    text-decoration: none;
+    color: white;
+}
+.link_top a:link{
+    text-decoration: none;
+    color: white;
 }
 .ed a:link { 
     color: yellow;

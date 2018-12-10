@@ -4,7 +4,7 @@
         <div class = "escurinho">
         	<div class="contai">
             <div class = "whi">dinnerdash</div>
-            <div class = "top-right"><span class = "top-r yellow">backoffice</span><span class = "top-r">perfil</span><span class = "top-r">sair</span></div>
+            <div class = "top-right"><span class = "top-r yellow">backoffice</span><span class = "top-r"><%= link_to('perfil', edit_user_registration_path, class: "link_top") %></span><span class = "top-r"> <%= link_to('sair', destroy_user_session_path, method: :delete, class: "link_top")%></span></div>
         	</div>
             <div class = "Back">Monte seu prato</div>
             <div class = "ger">Escolha sua salada, molho, prato principal, guarnição e bebida</div>
