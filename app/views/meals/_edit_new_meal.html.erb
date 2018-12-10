@@ -2,57 +2,35 @@
 <%= render  "nav_meals" %>
 <div class="container content font">
 		<div class ="new_cat">Nova refeição</div>
-<form>
+<%= form_with model: @meal do |form| %>
   <div class="form-row">
     <div class="form-group col-md-6">
-      <input type="name" class="form-control" id="mealName" placeholder="Nome">
+      <%= form.text_field :name, class: "form-control", id: "mealName", placeholder: "Nome"%>
     </div>
         <div class="form-group col-md-4">
-      <select id="inputCategory" class="form-control">
-        <option selected>Categoria</option>
-        <option>...</option>
-      </select>
+        <%= form.select :category_id, @categories.collect { |category| [category.name, category.id]}, {}, {:class => "form-control", :id => "inputCategory"}%>
     </div>
   </div>
   <div class="form-row justify-content-start">
       <div class="form-group col-md-2">
-        <input type="text" class="form-control" id="inputPrice " placeholder="Preço">
+        <%= form.text_field :price, class: "form-control", id: "inputPrice", placeholder: "Preço"%>
     </div>
         <div class="form-group col-md-8 custom-file">
-        <input type="file" class="custom-file-input" id="validatedCustomFile" required>
-        <label class="custom-file-label" for="validatedCustomFile">Escolha um arquivo...</label>
+        <%= form.file_field :image, class: "custom-file-input", id: "validatedCustomFile"%>
+        <label class="custom-file-label" for="validatedCustomFile">Escolha uma Imagem</label>
     </div>
   </div>
   <div class="form-row">
     <div class="form-group col-md-6">
         <label for="exampleFormControlTextarea1">Descrição</label>
-        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+        <%= form.text_area :description, class: "form-control", id: "exampleFormControlTextareal", rows: "3"%>
     </div>
          <div class="form-check col-md-2 mt-4 mr-3 ml-4 align-middle">
-             <input class="form-check-input" type="checkbox" id="gridCheck">
+             <%= form.check_box :available, class: "form-check-input", id: "gridCheck"%>
             <label class="form-check-label" for="gridCheck">
                  Disponivel?
             </label>
-            <button type="submit" class="btn btn-primary mt-4">Sign in</button>
+            <%= form.submit "Criar refeição" , class: "btn btn-success mt-4"%>
         </div>
-</form>
-
-
-        <%= form_with model: @meal do |form| %>
-            <label class = "labels">Nome</label>
-            <div class ="input"><%= form.text_field :name%></div>
-            <label class = "labels">Descrição</label>
-            <div class ="input"><%= form.text_field :description%></div>
-            <label class = "labels">Categoria</label>
-            <div class = "labels"><%= form.select :category_id, @categories.collect { |category| [category.name, category.id] }%></div>
-            <label class = "labels">Preço</label>
-            <div class ="input"><%= form.text_field :price%></div>
-            <label class = "labels">Imagem</label>
-            <div class ="input custom-file"><%= form.file_field :image%></div>
-            <label class = "labels">Disponibilidade</label>
-            <div class ="input"><%= form.check_box :available%></div>
-      
-
-			<button class = "btn btn-success botao space"><% form.submit %>criar refeição</button><button class = "btn botao voltar"><%= link_to  "voltar", meals_path %> </button>
-        <% end %>
+    <% end %>
 </div>
