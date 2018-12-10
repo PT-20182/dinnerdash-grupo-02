@@ -2,8 +2,8 @@
     <div class="painel">
 	<header class="upper_header">
 		<label class="upper_h2">dinnerdash</label>
-		<span><label class="float-right ">sair</label>
-		<label class="upper_header float-right ">perfil</label></span>
+		<span><label class="float-right "><%= link_to  "sair",  destroy_user_session_path, class: "link", method: "delete" %></label>
+		<label class="upper_header float-right "><%= link_to  "perfil",  edit_user_registration_path, class: "link" %></label></span>
 		<label class="text-warning upper_header float-right ">backoffice</label>
 		</header>
 
