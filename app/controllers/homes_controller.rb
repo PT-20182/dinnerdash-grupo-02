@@ -5,10 +5,5 @@ class HomesController < ApplicationController
     @users = User.all
 
   end
-  def add_meal
-    redirect_to root_path, notice: "prato adicionado ao carrinho"
-  end
-  def delete_meal
-    redirect_to root_path, notice: "prato removido"
-  end
+  
 end

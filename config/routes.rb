@@ -6,8 +6,10 @@ Rails.application.routes.draw do
   resources :situations
   resources :meals
   resources :categories
-  post 'homes/delete_meal'
-  post 'homes/add_meal'
+  
+  put '/delete', to: 'carts#delete_item', as: 'delete'
+  put '/add', to: 'carts#add_item', as: 'add'
+  
   devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
