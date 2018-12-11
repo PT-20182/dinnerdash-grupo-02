@@ -38,8 +38,35 @@
     float: left;
     margin-left: 2%;
 }
-.img_certa{
-  max-width:100%;
+.img_certa_home{
+  max-width: 100%;
   max-height: 40%;
   min-height: 40%;
 }
+
+.img_certa_backoffice{
+    max-width: 100%;
+    max-height: 40%;
+    min-height: 40%;
+  }
+
+  .card_footer{
+    position:absolute;
+    bottom: 12px;
+    width:100%;
+  }
+
+  .card_footer2{
+    position:absolute;
+    bottom: 0;
+    width:100%;
+  }
+
+  .form_fix{
+      width: auto;
+  }
+
+  .img_cart_home{
+      width: 120px;
+      height: 100px;
+  }

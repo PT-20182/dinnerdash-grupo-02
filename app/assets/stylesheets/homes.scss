@@ -140,15 +140,17 @@ bottom: 15%;
 }
 .over{
     position: absolute;
-    top: 33%;
+    top: 33.5%;
     padding: 0;
 
 }
 
 .card_checkout_box{
     width: 40%;
+    min-width: 370px;
+    max-width: 370px;
     height: auto;
 }
 .button_size{
-    width: auto;
+    width: 100%;
 }

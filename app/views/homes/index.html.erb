@@ -16,7 +16,7 @@
 				<%@meals.each do |meal|%>
 					<%if(meal.category_id == category.id)%>
 						<div class="card cards ">
-							<%= image_tag(meal.image, class: "card-img-top img_certa")%>
+							<%= image_tag(meal.image, class: "card-img-top img_certa_home")%>
 							<div class = "card-img-overlay over ">
 								<h6 class="card-title meal_name">
 									<span class = "espaco_name"><%= meal.name %></span>
@@ -24,8 +24,8 @@
 							</div>
 							<div class="card-body position-relative">
 								<h5 class="card-text description position-relative"><%= meal.description %></h5>
-								<h5 class="text-success">R<%=number_to_currency(meal.price) %> por porção </h5>
-								<div class="form-group">
+								<div class="form-group card_footer2 mt-3">
+									<h5 class="text-success">R<%=number_to_currency(meal.price) %> por porção </h5>
 									<label for="exampleFormControlSelect1">Quantidade</label>
 									<% flag = false %>
 									<% session[:cart].each do | meals | %>
@@ -33,15 +33,15 @@
 											<% flag = true %>
 										<% end %>
 									<% end %>
-									<% if flag == false %>
+									<% if flag == false %>								
 										<%= form_with url: add_path(id: meal.id), method: :put do | cart | %>
-											<%= cart.number_field :quantity, {:value => 1, min: 1 } %>
-											<%= cart.submit "Adicionar ao carrinho", class: "btn btn-success justify-content-center d-flex" %>
+												<%= cart.number_field :quantity, :value => 1, min: 1, class: "form-control w-auto mb-2" %>
+												<%= cart.submit "Adicionar ao carrinho", class: "btn btn-success d-flex ml-1" %>
 										<% end %>
 									<% else %>
 										<%= form_with url: add_path(id: meal.id), method: :put do | cart | %>
-											<%= cart.number_field :quantity, {:value => 1, disabled: true, min: 1 } %>
-											<%= cart.submit "Adicionado carrinho", class: "btn btn-success justify-content-center d-flex" %>
+												<%= cart.number_field :quantity, :value => 1, disabled: true, min: 1, class: "form-control w-auto mb-2" %>
+												<%= cart.submit "Adicionado carrinho", class: "btn btn-success d-flex ml-2 mt-1" %>
 										<% end %>
 									<% end %>
 							    </div>
@@ -57,31 +57,33 @@
 <div class="container font">
 	<h2 class="">Finalizou seu pedido?</h2>
 	<h5 class="">Confira os itens adicionados ao carrinho antes de finalizar.</h5>
-	<% total = 0 %>
-	<% session[:cart].each do | meal| %>
-		<% @meal = Meal.find(meal["meal"]) %>
-		<% quant = meal["quantity"] %>
-		<div class="card card_checkout_box flex-wrap">
-			<div class="card-body d-flex flex-wrap justify-content-around">
-				<div class="d-flex">
-					<%= image_tag(@meal.image, class: "card-img-top") %>
-				</div>
-				<div class="flex-column">
-
-					<h4><%=@meal.name %> </h4>
-					<p class="margin_cart_text">Quantidade: <%= quant %></p>
-					<p class="margin_cart_text">Preço unitário: <%= @meal.price%></p>
-					<p class="margin_cart_text">Preço total: <%= @meal.price * quant.to_i  %></p>
-				</div>
-				<% total += (@meal.price*quant.to_i) %>
-				<div class="form-group flex_column">
-				<%= form_with url: delete_path(id: meal["meal"]), method: :put do | cart | %>
-					<%= cart.submit "Remover do carrinho", class: "btn btn-outline-danger button_size mt-1" %>
-				<% end %>
+	<div class="container-fluid d-flex flex-wrap pl-0 justify-space-between">
+		<% total = 0 %>
+		<% session[:cart].each do | meal| %>
+			<% @meal = Meal.find(meal["meal"]) %>
+			<% quant = meal["quantity"] %>
+			<div class="card card_checkout_box mr-2 d-flex flex-wrap mb-2">
+				<div class="card-body d-flex flex-wrap justify-content-around">
+					<div class="d-flex col pl-0 pr-2">
+						<%= image_tag(@meal.image, class: "card-img-top img_cart_home") %>
+					</div>
+					<div class="flex-column">
+						<h4><%=@meal.name %> </h4>
+						<p class="margin_cart_text">Quantidade: <%= quant %></p>
+						<p class="margin_cart_text">Preço unitário: <%= @meal.price%></p>
+						<p class="margin_cart_text">Preço total: <%= @meal.price * quant.to_i  %></p>
+					<% total += (@meal.price*quant.to_i) %>
+						<div class="form-group flex_column">
+							<%= form_with url: delete_path(id: meal["meal"]), method: :put do | cart | %>
+								<%= cart.submit "Remover do carrinho", class: "btn btn-outline-danger button_size mt-1" %>
+							<% end %>
+						</div>
+					</div>
 				</div>
 			</div>
-		</div>
-	<% end %>
-	<%= total %>
+		<% end %>
+	</div>
+	<hr>
+	<h4><b>Total do pedido: </b><span class="text-success">R$<%= total %></span></h4>
 	<button type="button" class="btn btn-success mt-3">Finalizar pedido</button>
 </div>
