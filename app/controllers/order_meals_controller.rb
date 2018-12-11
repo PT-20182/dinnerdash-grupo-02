@@ -12,6 +12,17 @@ class OrderMealsController < ApplicationController
 	def new
 		@order_meal = Order_Meal.new
 	end
+
+	def make
+		@order = params[:order_id]
+		session[:cart].each do |f|
+			create@order,f["product"],f["quantity"]
+		end
+		while session[:cart] != [] do
+			current_cart.pop()
+		end
+		redirect_to order_meals_path
+	end
   
 	def create
 	  order_meal = Order_Meal.create(order_meal_params)

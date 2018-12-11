@@ -1,3 +1,4 @@
+<% session[:cart] ||= [] %>
 <%= render  "painel_homes" %>
 <% if notice %>
   <p class="alert alert-success"><%= notice %></p>
@@ -14,13 +15,13 @@
 			<div class = "d-flex flex-row contain">	
 				<%@meals.each do |meal|%>
 					<%if(meal.category_id == category.id)%>
-						<div class="card cards">
-							<%= image_tag(meal.image, class: "card-img-top")%>
-								<div class = "card-img-overlay over">
-									<h6 class="card-title meal_name">
-										<span class = "espaco_name"><%= meal.name %></span>
-									</h6>
-								</div>
+						<div class="card cards ">
+							<%= image_tag(meal.image, class: "card-img-top img_certa")%>
+							<div class = "card-img-overlay over ">
+								<h6 class="card-title meal_name">
+									<span class = "espaco_name"><%= meal.name %></span>
+								</h6>
+							</div>
 							<div class="card-body position-relative">
 								<h5 class="card-text description position-relative"><%= meal.description %></h5>
 								<h5 class="text-success">R<%=number_to_currency(meal.price) %> por porção </h5>

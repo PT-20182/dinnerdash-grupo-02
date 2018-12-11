@@ -17,7 +17,7 @@
 				<%@meals.each do |meal|%>
 					<%if(meal.category_id == category.id)%>
 						<div class="card cards_backoffice">
-							<%= image_tag(meal.image, class: "card-img-top")%>
+							<%= image_tag(meal.image, class: "card-img-top img_certa")%>
 								<div class = "card-img-overlay over_backoffice">
 									<h6 class="card-title meal_name_backoffice">
                                         <span class = "espaco_name"><%= meal.name %></span>
