@@ -33,7 +33,7 @@
 										<% end %>	
 									</select>
 							    </div>
-								<a href="#" class="btn btn-success justify-content-center d-flex">Adicionar ao carrinho</a>
+								<%= button_to  "Adicionar ao carrinho", homes_add_meal_path, class: "btn btn-success justify-content-center d-flex", method: "post" %>
 							</div>
 						</div>
 					<% end %>
