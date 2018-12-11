@@ -2,32 +2,28 @@
   <div class="conimg"></div>
   <div class="conput"> 
     <h1>dinnerdash</h1>
-        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-          <%= devise_error_messages! %>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= devise_error_messages! %>
 
-            <%= f.label :nome, class: "labels" %><br />
-            <%= f.text_field :name, autofocus: true, autocomplete: "name", class: "input" %>
+      <%= f.label :nome, class: "labels" %><br />
+      <%= f.text_field :name, autofocus: true, autocomplete: "name", class: "input" %>
 
-            <%= f.label :email, class: "labels" %><br />
-            <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "input" %>
+      <%= f.label :email, class: "labels" %><br />
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "input" %>
 
-            <%= f.label :senha, class: "labels" %>
-            <% if @minimum_password_length %>
-            <em>(<%= @minimum_password_length %> characters minimum)</em>
-            <% end%><br />
-            <%= f.password_field :password, autocomplete: "new-password", class: "input" %>
+      <%= f.label :senha, class: "labels" %>
+      <% if @minimum_password_length %>
+        <em>(<%= @minimum_password_length %> characters minimum)</em>
+      <% end%><br />
+      <%= f.password_field :password, autocomplete: "new-password", class: "input" %>
 
-            <%= f.label :Confirme_sua_senha, class: "labels" %><br />
-            <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "input" %>
+      <%= f.label :Confirme_sua_senha, class: "labels" %><br />
+      <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "input" %>
 
-            <%= f.submit "Cadastrar", class: "login" %>
-        <% end %>
-        <div class = "divisor">
-                </div>
-                <div class = "question">
-                    Já possui conta?
-                </div>
-        <%= render "devise/shared/links" %>
-      </div>
+      <%= f.submit "Cadastrar", class: "login" %>
+    <% end %>
+    <hr>
+    <h6>Já possui conta?</h6>
+    <%= render "devise/shared/links" %>
   </div>
 </div>
