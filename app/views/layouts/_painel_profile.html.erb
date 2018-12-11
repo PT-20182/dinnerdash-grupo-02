@@ -5,7 +5,7 @@
             <span><label class="float-right "><%= link_to  "sair",  destroy_user_session_path, class: "link", method: "delete" %></label>
             <label class="upper_header float-right "><%= link_to  "perfil",  edit_user_registration_path, class: "link" %></label></span>
             <% if current_user.admin == true %>
-                <label class="text-warning upper_header float-right ">backoffice</label>
+                <label class=" upper_header float-right "><%= link_to  "backoffice", categories_path, class: "ed text-warning" %></label>
             <% end %>
         </header>
 

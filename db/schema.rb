@@ -46,7 +46,7 @@ ActiveRecord::Schema.define(version: 2018_11_26_224007) do
     t.string "name"
     t.text "description"
     t.float "price"
-    t.boolean "available"
+    t.boolean "available", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "category_id"

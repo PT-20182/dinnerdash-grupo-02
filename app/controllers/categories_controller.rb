@@ -29,8 +29,11 @@ class CategoriesController < ApplicationController
 
   def create
 	  category = Category.create(category_params)
-    
-    redirect_to categories_path
+    if category.name.length <= 2
+      redirect_to categories_path, alert: "nome invalido! pequeno demais"
+    else
+      redirect_to categories_path
+    end
   end
   
   def edit
@@ -38,14 +41,23 @@ class CategoriesController < ApplicationController
 
   def update
     @category.update(category_params)
-
-    redirect_to categories_path
+    if @category.name.length <= 2
+      redirect_to categories_path, alert: "nome invalido! pequeno demais"
+    else
+      redirect_to categories_path
+    end
   end
 
   def destroy 
+    meals = Meal.all
+    meals.each do |meal|
+      if meal.category_id == @category.id
+        meal.destroy
+      end
+    end
     @category.destroy
 
-    redirect_to categories_path
+    redirect_to categories_path, notice: "Categoria removida, com sucesso"
   end
   
   private

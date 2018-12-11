@@ -27,9 +27,25 @@ class MealsController < ApplicationController
 	end
   
 	def create
-	  meal = Meal.create(meal_params)
-	  
-	  redirect_to meals_path
+		meal = Meal.create(meal_params)
+		alert ||= []
+	  if meal.name.length <= 2
+			alert.push("nome invalido! pequeno demais")
+		end
+		if meal.price == nil 
+			alert.push("preço invalido! campo vazio")
+		elsif meal.price <= 0
+			alert.push("preço invalido! nao existe preço negativo")
+		end
+		if meal.category  == nil
+			alert.push("a refeição deve ter uma categoria")
+		end
+		if meal.available == nil
+			alert.push("marque a caixa de disponibilidade!")
+		end
+		
+		redirect_to meals_path, alert: alert
+
 	end
 	
 	def edit
@@ -38,14 +54,32 @@ class MealsController < ApplicationController
   
 	def update
 	  @meal.update(meal_params)
-		
-	  redirect_to meals_path
+		alert ||= []
+	  if @meal.name.length <= 2
+			alert.push("nome invalido! pequeno demais")
+		end
+		if @meal.price == nil 
+			alert.push("preço invalido! campo vazio")
+		elsif @meal.price <= 0
+			alert.push("preço invalido! nao existe preço negativo")
+		end
+		if @meal.category  == nil
+			alert.push("a refeição deve ter uma categoria")
+		end
+		if @meal.available == nil
+			alert.push("marque a caixa de disponibilidade!")
+		end
+		if alert.empty?
+			redirect_to meals_path, notice: "refeição criada com sucesso"
+		else
+			redirect_to meals_path, alert: alert
+		end
 	end
   
 	def destroy 
 	  @meal.destroy
   
-	  redirect_to meals_path
+	  redirect_to meals_path, notice: "refeição removida com sucesso"
 	end
 	
 	private
