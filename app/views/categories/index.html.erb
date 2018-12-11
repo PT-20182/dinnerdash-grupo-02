@@ -7,7 +7,7 @@
         <p class="alert alert-danger"><%= alert %></p>
     <% end %>
     <div class="container content font">
-       <table class="table categories">
+       <table class="table categories" id="categorias">
             <thead class="gray">
             <tr>
                 <th scope="col">Nome</th>
@@ -38,3 +38,22 @@
     <br>
     <br>
     </div>
+    
+    <script> $(document).ready(function() {
+                $('#categorias').DataTable( {
+                    "paging":   true,
+                    "lengthChange": false,
+                    "pagingType": "numbers",
+                    "lengthMenu": [ 4],
+                    "ordering": false,
+                    "info":     false
+                    buttons: {
+                        buttons: [
+                            { extend: 'copy', className: 'copyButton' },
+                            { extend: 'excel', className: 'excelButton' }
+                        ]
+                    }
+
+                } );
+            } );
+    </script>
