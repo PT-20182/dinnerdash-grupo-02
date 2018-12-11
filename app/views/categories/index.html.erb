@@ -26,7 +26,7 @@
                         <td class =""><%= i %></td>
                         <td class =""><%=category.created_at.strftime('%d/%m/%y')%></td>
                         <td class =""></td>
-                        <td class ="ed font-weight-bold yellow"><%= link_to  "editar", edit_category_path(category) %></td>
+                        <td class ="ed font-weight-bold"><%= link_to  "editar", edit_category_path(category) %></td>
                         <td class ="exc font-weight-bold"><%= link_to "excluir", category, method: :delete, data: { confirm: 'você tem certeza?' } %></td>
 
                     </tr>

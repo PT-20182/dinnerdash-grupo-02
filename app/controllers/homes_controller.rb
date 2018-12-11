@@ -4,4 +4,8 @@ class HomesController < ApplicationController
     @categories = Category.all
 
   end
+
+  def delete_meal
+    redirect_to root_path, notice: "prato removido"
+  end
 end

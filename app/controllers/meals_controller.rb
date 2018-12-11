@@ -28,23 +28,32 @@ class MealsController < ApplicationController
   
 	def create
 		meal = Meal.create(meal_params)
+		flag = 0
 		alert ||= []
 	  if meal.name.length <= 2
 			alert.push("nome invalido! pequeno demais")
+			flag = 1
 		end
 		if meal.price == nil 
 			alert.push("preço invalido! campo vazio")
+			flag = 1
 		elsif meal.price <= 0
 			alert.push("preço invalido! nao existe preço negativo")
+			flag = 1
 		end
 		if meal.category  == nil
 			alert.push("a refeição deve ter uma categoria")
+			flag = 1
 		end
 		if meal.available == nil
 			alert.push("marque a caixa de disponibilidade!")
+			flag = 1
 		end
-		
-		redirect_to meals_path, alert: alert
+		if flag == 0
+			redirect_to meals_path, notice: "refeição criada com sucesso"
+		else
+			redirect_to meals_path, alert: alert
+		end
 
 	end
 	
@@ -53,23 +62,29 @@ class MealsController < ApplicationController
 	end
   
 	def update
-	  @meal.update(meal_params)
+		@meal.update(meal_params)
+		flag = 0
 		alert ||= []
 	  if @meal.name.length <= 2
 			alert.push("nome invalido! pequeno demais")
+			flag = 1
 		end
 		if @meal.price == nil 
 			alert.push("preço invalido! campo vazio")
+			flag = 1
 		elsif @meal.price <= 0
 			alert.push("preço invalido! nao existe preço negativo")
+			flag = 1
 		end
 		if @meal.category  == nil
 			alert.push("a refeição deve ter uma categoria")
+			flag = 1
 		end
 		if @meal.available == nil
 			alert.push("marque a caixa de disponibilidade!")
+			flag = 1
 		end
-		if alert.empty?
+		if flag == 0
 			redirect_to meals_path, notice: "refeição criada com sucesso"
 		else
 			redirect_to meals_path, alert: alert

@@ -66,7 +66,7 @@
 				<% i+= 1 %>
 			<% end %>	
 			</select>
-			<button type="button" class="btn btn-outline-danger button_size mt-1">Remover</button>
+			<%= button_to  "Remover", homes_delete_meal_path, class: "btn btn-outline-danger button_size mt-1", method: "post" %>
 		</div>
 	</div>
 	</div>
