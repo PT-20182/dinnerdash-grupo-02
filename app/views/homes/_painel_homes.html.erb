@@ -8,7 +8,9 @@
         <% else %>
             <label class="float-right "><%= link_to  "sair", destroy_user_session_path, class: "link", method: "delete" %></label>
             <label class="upper_header float-right "><%= link_to  "perfil", edit_user_registration_path , class: "link" %></label>
-            <label class="upper_header float-right"><%= link_to  "backoffice", categories_path, class: "ed text-warning" %></label>
+            <% if current_user.admin == true %>
+                <label class="upper_header float-right"><%= link_to  "backoffice", categories_path, class: "ed text-warning" %></label>
+            <% end %>
         <% end %>
         </header>
 
