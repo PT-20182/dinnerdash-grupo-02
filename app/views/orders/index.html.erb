@@ -1,2 +1,50 @@
-<h1>Orders#index</h1>
-<p>Find me in app/views/orders/index.html.erb</p>
+<%= render  "layouts/painel_categories" %>
+<%= render  "nav_orders" %> 
+    <div class="container content font">
+       <table class="table categories">
+            <thead class="gray">
+                <tr>
+                    <th scope="col">Pedido de n°</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Data</th>
+                    <th scope="col">Usuários</th>
+                    <th scope="col">Preço total</th>
+                    <th scope="col">Detalhes</th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>    
+                    <td class ="">123456</td>
+                    <td class =""><p class="concluido">Confirmado</p></td>
+                    <td class ="">11/10/2018</td>
+                    <td class ="">Fernandinho</td>
+                    <td class ="">R$99.99</td>
+                    <td class ="font-weight-bold text-primary">Detalhes do pedido</td>
+                    <td class ="font-weight-bold text-warning">Editar</td>
+                    <td class ="font-weight-bold text-danger">Excluir</td>
+                </tr>
+                <tr>    
+                    <td class ="">654321</td>
+                    <td class =""><p class="pendente">Pendente</p></td>
+                    <td class ="">11/10/2018</td>
+                    <td class ="">Luis</td>
+                    <td class ="">R$35.99</td>
+                    <td class ="font-weight-bold text-primary">Detalhes do pedido</td>
+                    <td class ="font-weight-bold text-warning">Editar</td>
+                    <td class ="font-weight-bold text-danger">Excluir</td>
+                </tr>
+                <tr>    
+                    <td class ="">666666</td>
+                    <td class =""><p class="cancelado">Cancelado</p></td>
+                    <td class ="">11/10/2018</td>
+                    <td class ="">Babilônico</td>
+                    <td class ="">R$6.66</td>
+                    <td class ="font-weight-bold text-primary">Detalhes do pedido</td>
+                    <td class ="font-weight-bold text-warning">Editar</td>
+                    <td class ="font-weight-bold text-danger">Excluir</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>

@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   root to: 'homes#index'
-  resources :homes
+  resources :pedidos
   resources :order_meals
   resources :orders
   resources :situations

@@ -13,13 +13,13 @@
 
     <div class="form-row">
       <%= f.label :nova_senha, class: "mt-2"%>
-      <%= f.password_field :senha, autocomplete: "new-password", class:"form-control", placeholder:"Não preencha se não quiser alterá-la"%>
+      <%= f.password_field :password, autocomplete: "new-password", class:"form-control", placeholder:"Não preencha se não quiser alterá-la"%>
 
-      <%= f.label :confirme_sua__nova_senha, class: "mt-2" %><br />
-      <%= f.password_field :confirme_sua_senha, autocomplete: "new-password", class:"form-control", placeholder:"Confirme sua nova senha" %>
+      <%= f.label :confirme_sua_nova_senha, class: "mt-2" %><br />
+      <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"form-control", placeholder:"Confirme sua nova senha" %>
 
-      <%= f.label :senha_atual, class: "mt-2" %>
-      <%= f.password_field :senha_atual, autocomplete: "current-password", class:"form-control", placeholder:"Digite sua senha para confirmar alterações" %>
+        <%= f.label :senha_atual, class: "mt-2" %>
+      <%= f.password_field :current_password, autocomplete: "current-password", class:"form-control", placeholder:"Digite sua senha para confirmar alterações" %>
     </div>
     <%= f.submit "Salvar", class: "btn btn-success mt-2" %>
     <%= button_to "Voltar", homes_path, method: "get", class:"btn btn-secondary mt-2" %>

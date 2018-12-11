@@ -1,3 +1,30 @@
 // Place all the styles related to the Orders controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+p.pendente {
+    margin: 0px;
+    padding: 0px;
+    text-align: center;
+    border-radius: 5px;
+    color: white;
+    background-color: #35A7FF;
+}
+
+p.concluido {
+    margin: 0px;
+    padding: 0px;
+    text-align: center;
+    border-radius: 5px;
+    color: white;
+    background-color: rgb(34, 209, 107);
+}
+
+p.cancelado {
+    margin: 0px;
+    padding: 0px;
+    text-align: center;
+    border-radius: 5px;
+    color: white;
+    background-color: #FF5964;
+}
