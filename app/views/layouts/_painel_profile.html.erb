@@ -4,7 +4,9 @@
 		    <label class="upper_h2"><%= link_to  "dinnerdash",  homes_path, class: "link" %></label>
             <span><label class="float-right "><%= link_to  "sair",  destroy_user_session_path, class: "link", method: "delete" %></label>
             <label class="upper_header float-right "><%= link_to  "perfil",  edit_user_registration_path, class: "link" %></label></span>
-            <label class="text-warning upper_header float-right ">backoffice</label>
+            <% if current_user.admin == true %>
+                <label class="text-warning upper_header float-right ">backoffice</label>
+            <% end %>
         </header>
 
         <div class="lower_header fixed-bottom">

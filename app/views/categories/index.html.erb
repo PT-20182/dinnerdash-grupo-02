@@ -1,6 +1,11 @@
 <%= render  "layouts/painel_categories" %>
 <%= render  "nav_categories" %>
-
+    <% if notice %>
+        <p class="alert alert-success"><%= notice %></p>
+    <% end %>
+    <% if alert %>
+        <p class="alert alert-danger"><%= alert %></p>
+    <% end %>
     <div class="container content">
        <table class="table categories">
             <thead class="gray">
