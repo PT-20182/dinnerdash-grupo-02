@@ -1,6 +1,20 @@
 class CategoriesController < ApplicationController
   helper CategoriesHelper
+  helper ApplicationHelper
   before_action :current_category, only:[:show, :edit, :update, :destroy]
+  before_action :verify_user
+  
+  
+	def verify_user
+
+    if (user_signed_in? == false)
+      redirect_to root_path, alert: "voce deve estar logado"
+    elsif (current_user.admin == false)
+      redirect_to root_path, alert: "voce não possui permissão"
+    end
+
+  end
+  
   def index
     @meals = Meal.all
     @categories = Category.all

@@ -1,4 +1,10 @@
 <%= render  "painel_homes" %>
+<% if notice %>
+  <p class="alert alert-success"><%= notice %></p>
+<% end %>
+<% if alert %>
+  <p class="alert alert-danger"><%= alert %></p>
+<% end %>
 <div class="container font">
 	<%@categories.each do |category| %>
 		<% i = quantidade(category) %>
