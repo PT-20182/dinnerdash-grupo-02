@@ -16,6 +16,11 @@
     min-width: 300px;
     position: relative;
 }
+.img_certa{
+  max-width:100%;
+  max-height: 40%;
+  min-height: 40%;
+}
 .clear {
     clear:both;
     line-height:0;
@@ -135,8 +140,9 @@ bottom: 15%;
 }
 .over{
     position: absolute;
-    top: 29.5%;
+    top: 33%;
     padding: 0;
+
 }
 
 .card_checkout_box{
