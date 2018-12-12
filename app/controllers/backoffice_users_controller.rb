@@ -5,13 +5,17 @@ class BackofficeUsersController < ApplicationController
   def verify_user
 
     if (user_signed_in? == false)
-      redirect_to root_path, alert: "voce deve estar logado"
+      redirect_to root_path, alert: "Você deve estar logado!"
     elsif (current_user.admin == false)
-      redirect_to root_path, alert: "voce não possui permissão"
+      redirect_to root_path, alert: "Você não possui permissão!"
     end
 
   end
 
+  def user_params
+    params.require(:user).permit(:name,:admin,:email)
+  end
+  
   def index
     @users = User.all
   end
@@ -19,11 +23,21 @@ class BackofficeUsersController < ApplicationController
   def show
   end
 
+  def edit
+    @user = User.find(params[:id])
+  end
+
   def new
     @user = User.new
   end
 
-  def edit
+  def update
+    @user = User.find(params[:id])
+    if @user.update(user_params)
+      redirect_to backoffice_users_path
+    else
+      render 'edit'
+    end
   end
 
   def destroy 

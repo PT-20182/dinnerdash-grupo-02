@@ -40,7 +40,7 @@
     margin-left: 1%;
 }
 .upper_h2{
-    margin-bottom: 0.5%;
+    margin-bottom: 1%;
 }
 .lower_header{
     left: 9vw;
@@ -92,7 +92,10 @@ bottom: 15%;
 .font {
     font-family: 'Quicksand', sans-serif;
 }
-
+.font-logo{
+    font-size: 24px;
+    font-family: 'Cabin Sketch', cursive;
+}
 .cards {
     position: relative;
     word-wrap: break-all;
