@@ -1,10 +1,5 @@
 <%= render  "layouts/painel_categories" %>
 <%= render  "nav_meals" %>  
-    <% if alert %>
-        <% alert.each do |alert| %>
-            <p class="alert alert-danger"><%= alert %></p>
-        <% end %>
-    <% end %>
     <% if notice %>
         <p class="alert alert-success"><%= notice %></p>
     <% end %>

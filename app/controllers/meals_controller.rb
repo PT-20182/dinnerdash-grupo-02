@@ -30,29 +30,29 @@ class MealsController < ApplicationController
 		meal = Meal.create(meal_params)
 		flag = 0
 		alert ||= []
-	  if meal.name.length <= 2
-			alert.push("nome invalido! pequeno demais")
+		if meal.name.length <= 2
+			alert.push("Nome invalido! Mínimo de 2 caracteres.")
 			flag = 1
 		end
 		if meal.price == nil 
-			alert.push("preço invalido! campo vazio")
+			alert.push("Preço invalido! Campo Vazio.")
 			flag = 1
 		elsif meal.price <= 0
-			alert.push("preço invalido! nao existe preço negativo")
+			alert.push("Preço invalido! Apenas valores positivos.")
 			flag = 1
 		end
 		if meal.category  == nil
-			alert.push("a refeição deve ter uma categoria")
+			alert.push("A refeição deve possuir uma categoria!")
 			flag = 1
 		end
 		if meal.available == nil
-			alert.push("marque a caixa de disponibilidade!")
+			alert.push("Marque a caixa de disponibilidade!")
 			flag = 1
 		end
 		if flag == 0
-			redirect_to meals_path, notice: "refeição criada com sucesso"
+			redirect_to meals_path, notice: "Refeição criada com sucesso!"
 		else
-			redirect_to meals_path, alert: alert
+			redirect_to new_meal_path, alert: alert
 		end
 
 	end
@@ -66,35 +66,35 @@ class MealsController < ApplicationController
 		flag = 0
 		alert ||= []
 	  if @meal.name.length <= 2
-			alert.push("nome invalido! pequeno demais")
+			alert.push("Nome inválido! Mínimo de 2 caracteres.")
 			flag = 1
 		end
 		if @meal.price == nil 
-			alert.push("preço invalido! campo vazio")
+			alert.push("Preço inválido! Campo Vazio.")
 			flag = 1
 		elsif @meal.price <= 0
-			alert.push("preço invalido! nao existe preço negativo")
+			alert.push("Preço inválido! Apenas valores positivos.")
 			flag = 1
 		end
 		if @meal.category  == nil
-			alert.push("a refeição deve ter uma categoria")
+			alert.push("A refeição deve possuir uma categoria!")
 			flag = 1
 		end
 		if @meal.available == nil
-			alert.push("marque a caixa de disponibilidade!")
+			alert.push("Marque a caixa de disponibilidade!")
 			flag = 1
 		end
 		if flag == 0
-			redirect_to meals_path, notice: "refeição criada com sucesso"
+			redirect_to meals_path, notice: "Refeição atualizada com sucesso!"
 		else
-			redirect_to meals_path, alert: alert
+			redirect_to edit_meal_path, alert: alert
 		end
 	end
   
 	def destroy 
 	  @meal.destroy
   
-	  redirect_to meals_path, notice: "refeição removida com sucesso"
+	  redirect_to meals_path, notice: "Refeição removida com sucesso!"
 	end
 	
 	private

@@ -3,9 +3,6 @@
     <% if notice %>
         <p class="alert alert-success"><%= notice %></p>
     <% end %>
-    <% if alert %>
-        <p class="alert alert-danger"><%= alert %></p>
-    <% end %>
     <div class="container content font">
        <table class="table categories" id="categorias">
             <thead class="gray">
@@ -33,7 +30,7 @@
                 <%end%>
             </tbody>
         </table>
-        <%= button_to "criar nova categoria", new_category_path, :method => "get", class: "btn btn-success" %>
+        <%= button_to "Criar nova categoria", new_category_path, :method => "get", class: "btn btn-success" %>
     <br>
     <br>
     <br>

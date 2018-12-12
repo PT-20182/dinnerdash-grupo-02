@@ -30,9 +30,9 @@ class CategoriesController < ApplicationController
   def create
 	  category = Category.create(category_params)
     if category.name.length <= 2
-      redirect_to categories_path, alert: "nome invalido! pequeno demais"
+      redirect_to new_category_path, alert: "Nome inválido! Minímo de 2 caracteres."
     else
-      redirect_to categories_path, notice: "Categoria criada com sucesso"
+      redirect_to categories_path, notice: "Categoria criada com sucesso!"
     end
   end
   
@@ -42,9 +42,9 @@ class CategoriesController < ApplicationController
   def update
     @category.update(category_params)
     if @category.name.length <= 2
-      redirect_to categories_path, alert: "nome invalido! pequeno demais"
+      redirect_to edit_category_path, alert: "Nome inválido! Minímo de 2 caracteres."
     else
-      redirect_to categories_path
+      redirect_to categories_path, notice: "Categoria atualizada com sucesso1"
     end
   end
 

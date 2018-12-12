@@ -1,7 +1,16 @@
 <div class = "container mb-5 mt-5 pb-5">
+    <% if alert %>
+        <p class="alert alert-danger mt-3"><%= alert %></p>
+    <% end %>
         <%= form_with model: @category do |form| %>
             <%= form.text_field :name, class: "form-control mt-4 mb-4", placeholder: "Nome"%>
-            <%= form.submit "Criar nova categoria", class: "btn btn-success"%>
-            <%= button_to "Voltar" , categories_path, :method => "get", class: "btn btn-outline-secondary"%>
+            <div class="row">
+            <% if edit == 0 %>
+                <%= form.submit "Criar nova categoria", class: "btn btn-success ml-3"%>
+            <% else %>
+                <%= form.submit "Atualizar categoria", class: "btn btn-success ml-3"%>
+            <% end %>
         <% end %>
+    <%= button_to "Voltar" , categories_path, :method => "get", class: "btn btn-outline-secondary ml-2"%>
+            </div>
 </div>
