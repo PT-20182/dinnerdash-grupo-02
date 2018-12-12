@@ -1,6 +1,6 @@
 <%= render  "layouts/painel_profile" %>
 <div class="container d-flex flex-wrap">
-  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+  <%= form_for(@user, url: backoffice_user_path(@user), html: { method: :put}) do |f| %>
     <%= devise_error_messages! %>
     <div class="form-row">
         <%= f.label :email, class: "mt-2" %>
