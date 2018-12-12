@@ -11,6 +11,7 @@ User.create! do |admin|
 	admin.admin = true
 end
 Category.delete_all
+Meal.delete_all
 Category.create(name: "Macarrões")
 Category.create(name: "Pizzas")
 m = Meal.create(
