@@ -3,14 +3,14 @@ class OrderMealsController < ApplicationController
 
 
 	def index
-	  @order_meals = Order_Meal.all
+	  @order_meals = OrderMeal.all
 	end
   
 	def show
 	end
   
 	def new
-		@order_meal = Order_Meal.new
+		@order_meal = OrderMeal.new
 	end
 
 	def make
@@ -25,7 +25,7 @@ class OrderMealsController < ApplicationController
 	end
   
 	def create
-	  order_meal = Order_Meal.create(order_meal_params)
+	  order_meal = OrderMeal.create(order_meal_params)
 	  
 	  redirect_to order_meals_path
 	end
