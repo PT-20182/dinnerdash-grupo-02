@@ -25,10 +25,12 @@
 								</div>
 							<div class="card-body position-relative">
 								<h5 class="card-text description position-relative"><%= meal.description %></h5>
-								<h5 class="text-success mt-2">R<%=number_to_currency(meal.price) %> por porção </h5>
-								<div class = "d-flex flex-row mt-3 card_footer ">
-                                    <span class="col pl-0 pr-0"><%= button_to  "Editar", edit_meal_path(meal), :method => "get", class: "btn btn-warning botoes_ref editar" %></span>
-                                    <span class="col pl-0 pr-4"><%= button_to  "Excluir", meal, method: :delete, data: { confirm: 'você tem certeza?'}, class: "btn btn-danger botoes_ref exc"  %></span>
+								<div class = "flex-row mt-3 card_footer">
+                                    <h5 class="text-success ml-2 mt-2">R<%=number_to_currency(meal.price) %> por porção </h5>
+                                    <div class="row ml-2">
+                                        <span class="pl-0 pr-0"><%= button_to  "Editar", edit_meal_path(meal), :method => "get", class: "btn btn-warning botoes_ref editar" %></span>
+                                        <span class="pl-0 pr-4"><%= button_to  "Excluir", meal, method: :delete, data: { confirm: 'você tem certeza?'}, class: "btn btn-danger botoes_ref exc"  %></span>
+                                    </div>
                                 </div>
 							</div>
 						</div>
