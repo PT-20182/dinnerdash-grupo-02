@@ -44,7 +44,7 @@ class CategoriesController < ApplicationController
     if @category.name.length <= 2
       redirect_to categories_path, alert: "nome invalido! pequeno demais"
     else
-      redirect_to categories_path
+      redirect_to categories_path, notice: "Categoria atualizada com sucesso"
     end
   end
 

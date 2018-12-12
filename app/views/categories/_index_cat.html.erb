@@ -36,11 +36,11 @@
 
     <script>
 
-        window.onload = function () {
+        $(document).ready( function () {
             $('#categorias').DataTable({
                 "paging": true,
                 "lengthChange": false,
-                "pagingType": "numbers",
+                "pagingType": "full_numbers",
                 "lengthMenu": [4],
                 "ordering": false,
                 "info": false
@@ -48,14 +48,26 @@
             })
             botao();
 
-        }
+        } );
         function botao() {
             let button = document.querySelectorAll("a.paginate_button");
             for (let i = 0; i < button.length; i++) {
                 button[i].classList.add("btn");
                 button[i].classList.add("btn-outline-primary");
-                button[i].classList.add("mb-3");
+				button[i].classList.add("mb-3");
+				button[i].classList.add("ml-1");
                 button[i].addEventListener("click", botao); 
-            }
+			}
+			let button_div = document.querySelector("div.paging_full_numbers");
+			button_div.classList.add("d-flex");
+			button_div.classList.add("justify-content-center");
+			let search = document.querySelector("div.dataTables_filter");
+			search.classList.add("d-flex");
+			search.classList.add("justify-content-end");
+			search.classList.add("mt-4");
+			let input = document.querySelector("div.dataTables_filter input");
+			input.addEventListener("input", botao);
+			input.classList.add("form-control");
+
         }
     </script>
