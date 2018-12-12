@@ -10,3 +10,13 @@ User.create! do |admin|
 	admin.password_confirmation = '123456'
 	admin.admin = true
 end
+Category.delete_all
+Category.create(name: "Massas")
+m = Meal.create(
+	name: "pizza de calabresa",
+	price: 19.99,
+	description: "crocante e cremosa",
+	available: true,
+	category_id: 1
+)
+m.image.attach(io: File.open('app/assets/images/cheese-crust-delicious-774487.jpg'), filename: 'file.jpg')
