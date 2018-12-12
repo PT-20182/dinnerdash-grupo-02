@@ -13,10 +13,16 @@
             <% end %>
         <% end %>
         </header>
-
-    <header class="lower_header fixed-bottom">
-        <h1 class="home_title">Monte seu prato</h1>
-        <h3 class="home_subtitle">Escolha sua salada, molho, prato principal, guarnição e bebida</h3>
-    </header>
+    <% if user_signed_in? == true %>
+        <header class="lower_header fixed-bottom">
+            <h1 class="home_title">Monte seu prato, <%= current_user.name%></h1>
+            <h3 class="home_subtitle">Escolha sua salada, molho, prato principal, guarnição e bebida</h3>
+        </header>
+    <%else%>
+        <header class="lower_header fixed-bottom">
+            <h1 class="home_title">Monte seu prato</h1>
+            <h3 class="home_subtitle">Escolha sua salada, molho, prato principal, guarnição e bebida</h3>
+        </header>
+    <%end%>
     </div>
 </header>
