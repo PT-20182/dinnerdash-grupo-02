@@ -35,12 +35,12 @@
 									<% end %>
 									<% if flag == false %>								
 										<%= form_with url: add_path(id: meal.id), method: :put do | cart | %>
-												<%= cart.number_field :quantity, :value => 1, min: 1, class: "form-control w-auto mb-2" %>
+												<%= cart.number_field :quantity, :value => 1, min: 1, class: "form-control pl-2 pr-0 w-75 ml-1 mb-2" %>
 												<%= cart.submit "Adicionar ao carrinho", class: "btn btn-success d-flex ml-1" %>
 										<% end %>
 									<% else %>
 										<%= form_with url: add_path(id: meal.id), method: :put do | cart | %>
-												<%= cart.number_field :quantity, :value => 1, disabled: true, min: 1, class: "form-control w-auto mb-2" %>
+												<%= cart.number_field :quantity, :value => 1, disabled: true, min: 1, class: "form-control pl-2 pr-0 w-75 ml-1 mb-2" %>
 												<%= cart.submit "Adicionado carrinho", class: "btn btn-success d-flex ml-2 mt-1" %>
 										<% end %>
 									<% end %>
