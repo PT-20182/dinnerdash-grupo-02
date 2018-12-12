@@ -14,7 +14,7 @@
 			<h1 class = "category_name"><b><%=category.name%><b></h1>
 			<div class = "d-flex flex-row contain">	
 				<%@meals.each do |meal|%>
-					<%if(meal.category_id == category.id)%>
+					<%if(meal.category_id == category.id) & (meal.available == true)%>
 						<div class="card cards ">
 							<%= image_tag(meal.image, class: "card-img-top img_certa_home")%>
 							<div class = "card-img-overlay over ">
