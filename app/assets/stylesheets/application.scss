@@ -13,6 +13,7 @@
  *= require_tree .
  *= require_self
  */
+@import "normalize";
 @import "bootstrap";
 @import "categories";
 @import "users";
