@@ -6,23 +6,22 @@
   <%= form_for(@user, url: registration_path(@user), html: { method: :put }) do |f| %>
     <div class="form-row">
         <div class="col">
-            <%= f.label :Nome, class: "mt-2" %>
-            <%= f.email_field :name, autofocus: true, class:"form-control", placeholder:"Seu nome" %>
+            <%= f.label :nome, class: "mt-2" %>
+            <%= f.text_field :name, autofocus: true, class:"form-control", placeholder:"Novo nome" %>
         </div>
         <div class="col">
             <%= f.label :email, class: "mt-2" %>
-            <%= f.email_field :email, autofocus: true, class:"form-control", placeholder:"exemplo@exemplo.com" %>
+            <%= f.email_field :email, autofocus: true, class:"form-control", placeholder:"novo@email.com" %>
         </div>
     </div>
-
     <div class="form-row">
         <div class="col">
-            <%= f.label :senha, class: "mt-2"%>
-            <%= f.password_field :password, autocomplete: "new-password", class:"form-control", placeholder:"Mínimo de 6 caracteres"%>
+            <%= f.label :cadastrado, class: "mt-2" %>
+            <%= f.select :admin, [['Administrador', true], ['Usuário', false]], {},{ :class => "form-control"}%>
         </div>
         <div class="col">
-            <%= f.label :confirme_sua_senha, class: "mt-2" %><br />
-            <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"form-control", placeholder:"Confirme sua senha" %>
+            <%= f.label :cadastrado, class: "mt-2" %>
+            <%= f.text_field :password_confirmation, disabled: true,autocomplete: "new-password", class:"form-control", placeholder:@user.created_at.strftime('%d/%m/%y')%>
         </div>
     </div>
     <div class="row">
