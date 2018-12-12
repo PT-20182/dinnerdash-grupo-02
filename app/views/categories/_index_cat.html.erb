@@ -36,15 +36,34 @@
     
     <script> 
         $(document).ready(function() {
-                $('#categorias').DataTable( {
-                    "paging":   true,
-                    "lengthChange": false,
-                    "pagingType": "numbers",
-                    "lengthMenu": [ 4],
-                    "ordering": false,
-                    "info":     false
+            $('#categorias').DataTable( {
+                "paging":   true,
+                "lengthChange": false,
+                "pagingType": "numbers",
+                "lengthMenu": [ 4],
+                "ordering": false,
+                "info":     false
+                    
+            } );
+            let button = document.querySelectorAll("#categorias_paginate span a");
+            for(let i = 0; i < button.length ; i++){
+                button[i].classList.add("btn");
+                button[i].classList.add("btn-outline-primary");
+                button[i].classList.add("mb-3");
+            }
 
-                } );
-            
-			} );
+            for(let i = 0; i < button.length ; i++){
+                button[i].addEventListener("click", function(){
+                bonitificador();
+                });
+            }
+            function bonitificador(){
+                let button = document.querySelectorAll("#categorias_paginate span a");
+                for(let i = 0; i < button.length ; i++){
+                    button[i].classList.add("btn");
+                    button[i].classList.add("btn-outline-primary");
+                    button[i].classList.add("mb-3");
+                }
+            }
+        } );
     </script>
