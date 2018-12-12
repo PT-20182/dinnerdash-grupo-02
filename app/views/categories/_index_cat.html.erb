@@ -1,0 +1,50 @@
+<% if notice %>
+        <p class="alert alert-success"><%= notice %></p>
+    <% end %>
+    <div class="container content font">
+       <table class="table categories" id="categorias">
+            <thead class="gray">
+            <tr>
+                <th scope="col">Nome</th>
+                <th scope="col">Número de Refeições</th>
+                <th scope="col">Cadastrada em</th>
+                <th scope="col"></th>
+                <th scope="col"></th>
+                <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+                <% @categories.each do |category| %>
+                    <% i = quantidade(category) %>
+                    <tr>    
+                        <td class =""><%=category.name%></td>
+                        <td class =""><%= i %></td>
+                        <td class =""><%=category.created_at.strftime('%d/%m/%y')%></td>
+                        <td class =""></td>
+                        <td class ="ed font-weight-bold"><%= link_to  "editar", edit_category_path(category) %></td>
+                        <td class ="exc font-weight-bold"><%= link_to "excluir", category, method: :delete, data: { confirm: 'você tem certeza?' } %></td>
+
+                    </tr>
+                <%end%>
+            </tbody>
+        </table>
+        <%= button_to "Criar nova categoria", new_category_path, :method => "get", class: "btn btn-success" %>
+    <br>
+    <br>
+    <br>
+    </div>
+    
+    <script> 
+        $(document).ready(function() {
+                $('#categorias').DataTable( {
+                    "paging":   true,
+                    "lengthChange": false,
+                    "pagingType": "numbers",
+                    "lengthMenu": [ 4],
+                    "ordering": false,
+                    "info":     false
+
+                } );
+            
+			} );
+    </script>

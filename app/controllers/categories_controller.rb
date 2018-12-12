@@ -14,7 +14,9 @@ class CategoriesController < ApplicationController
     end
 
   end
-  
+
+
+
   def index
     @meals = Meal.all
     @categories = Category.all
