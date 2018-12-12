@@ -85,5 +85,5 @@
 	</div>
 	<hr>
 	<h4><b>Total do pedido: </b><span class="text-success">R$<%= total %></span></h4>
-	<button type="button" class="btn btn-success mt-3">Finalizar pedido</button>
+	<%=button_to "Finalizar pedido", order_meals_path, method: :get, class: "btn btn-success" %>  
 </div>

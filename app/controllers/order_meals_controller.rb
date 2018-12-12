@@ -18,7 +18,7 @@ class OrderMealsController < ApplicationController
 		session[:cart].each do |f|
 			create@order,f["product"],f["quantity"]
 		end
-		while session[:cart] != [] do
+		while session[:cart] != [] do 
 			current_cart.pop()
 		end
 		redirect_to order_meals_path
