@@ -28,8 +28,8 @@
     line-height:0;
 }
 .content{   
-    height: 40vh;
-    width: 100vw;
+    height: 40%;
+    width: 100%;
 }
 
 .upper_header{
@@ -43,13 +43,13 @@
     margin-bottom: 1%;
 }
 .lower_header{
-    left: 9vw;
+    left: 9%;
     position: absolute;
-    width: 100vw;
+    width: 100%;
 }
 .painel{
-    height: 60vh;
-    width: 100vw;
+    height: 100%;
+    width: 100%;
     background-color: rgba(0, 0, 0, 0.363);
     overflow: hidden;
     position: relative;
@@ -96,6 +96,12 @@ bottom: 15%;
     font-size: 24px;
     font-family: 'Cabin Sketch', cursive;
 }
+
+.font-logo2{
+    font-size: 3em;
+    font-family: 'Cabin Sketch', cursive;
+}
+
 .cards {
     position: relative;
     word-wrap: break-all;
@@ -140,8 +146,8 @@ bottom: 15%;
 }
 .img_overlay_container{
     position: relative ;
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
 }
 .over{
     position: absolute;

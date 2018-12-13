@@ -1,6 +1,6 @@
 .header_profile{
     height: 60vh;
-    width: 100vw;
+    width: 100%;
     background-image: url(restaurant.jpg);
     background-size: cover;
     background-repeat: no-repeat;
@@ -121,7 +121,7 @@ input.login {
 	flex-direction: column;
 }
 
-@media (max-width: 784px) {
+@media (max-width: 1200px) {
 	.conimg {
 		display: none;
 	}
