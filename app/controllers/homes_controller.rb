@@ -3,7 +3,6 @@ class HomesController < ApplicationController
     @meals = Meal.all
     @categories = Category.all
     @users = User.all
-
   end
   
 end

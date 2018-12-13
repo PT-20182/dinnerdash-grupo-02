@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   
   put '/delete', to: 'carts#delete_item', as: 'delete'
   put '/add', to: 'carts#add_item', as: 'add'
+  put '/create', to: 'order_meals#create_order', as: 'create'
   
   devise_for :users, :path_prefix => 'my'
 

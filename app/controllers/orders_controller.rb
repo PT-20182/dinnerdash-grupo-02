@@ -25,23 +25,7 @@ class OrdersController < ApplicationController
   end
 
   def create
-    @soma=0
-    session[:cart].each do |item|
-      meal = Meal.find(item["meal"])
-      quant = item["quantity"]
-
-      @soma += quant.to_i * meal.price
-    end
-	  @order = Order.new(user_id: current_user.id, price: @soma, situation_id: 1)
-    @order.save!
-
-    session[:cart].each do |item|
-      meal = Meal.find(item["meal"])
-      quant = item["quantity"]
-      @order_meal = OrderMeal.new(quantity: quant, order_id: @order.id, meal_id: meal.id)
-      @order_meal.save!
-    end
-    redirect_to root_path
+    
   end
   
   def edit
@@ -53,7 +37,13 @@ class OrdersController < ApplicationController
     redirect_to orders_path
   end
 
-  def destroy 
+  def destroy
+    orders = OrderMeal.all
+    orders.each do |order|
+      if order.order_id == @order.id
+        order.destroy
+      end
+    end
     @order.destroy
 
     redirect_to orders_path

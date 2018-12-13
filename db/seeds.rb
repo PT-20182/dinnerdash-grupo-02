@@ -5,6 +5,7 @@ Situation.create(status: "Cancelado")
 Situation.create(status: "Confirmado")
 User.delete_all
 User.create! do |admin|
+	admin.name = "Administrador"
 	admin.email = 'admin@gmail.com'
 	admin.password = '123456'
 	admin.password_confirmation = '123456'

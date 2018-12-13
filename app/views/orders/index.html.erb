@@ -20,6 +20,7 @@
                         <td class =""><%=order.id%></td>
                         <td class =""><%= Situation.find(order.situation_id).status %></td>
                         <td class =""><%=order.created_at.strftime('%d/%m/%y')%></td>
+                        <td class =""><%=User.find(order.user_id).name%></td>
                         <td class ="">R$<%=order.price%></td>
                         <td class ="font-weight-bold text-primary">Detalhes do pedido</td>
                         <td class ="ed font-weight-bold text-warning"><%= link_to  "editar", edit_order_path(order) %></td>
@@ -27,16 +28,6 @@
 
                     </tr>
                 <%end%>
-                <tr>    
-                    <td class ="">123456</td>
-                    <td class =""><p class="concluido">Confirmado</p></td>
-                    <td class ="">11/10/2018</td>
-                    <td class ="">Fernandinho</td>
-                    <td class ="">R$99.99</td>
-                    <td class ="font-weight-bold text-primary">Detalhes do pedido</td>
-                    <td class ="font-weight-bold text-warning">Editar</td>
-                    <td class ="font-weight-bold text-danger">Excluir</td>
-                </tr>
             </tbody>
         </table>
     </div>

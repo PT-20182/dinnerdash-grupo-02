@@ -31,16 +31,12 @@
 </div>
 <hr>
 <div class="container d-flex">
-	<div style="margin-right: 61%">
-		<h5>Esqueceu algo ?</h5>
-		<h6><%=button_to "Clique aqui", root_path, method: :get,class: "btn btn-dark"%>Para retornar ao menu.</h6>
-	</div>
-	<div>
-		<h4><b>Total do pedido: </b><span class="text-success">R$<%= total.round(2) %></span></h4>
-		<%=link_to "Finalizar pedido", pedidos_path, method: :get, class: "btn btn-success" %> 
-	</div>
 	<div class="ml-4 pl-4 mt-1 float-right">
 		<h5>Esqueceu algo ?</h5>
 		<h6><%=button_to "Voltar", root_path, method: :get,class: "btn btn-outline-dark"%></h6>
+	</div>
+	<div>
+		<h4><b>Total do pedido: </b><span class="text-success">R$<%= total.round(2) %></span></h4>
+		<%=button_to "Finalizar pedido", create_path, method: :put, class: "btn btn-success" %> 
 	</div>
 </div>
