@@ -12,20 +12,9 @@ class OrderMealsController < ApplicationController
 	def new
 		@order_meal = OrderMeal.new
 	end
-
-	def make
-		@order = params[:order_id]
-		session[:cart].each do |f|
-			create@order,f["product"],f["quantity"]
-		end
-		while session[:cart] != [] do 
-			current_cart.pop()
-		end
-		redirect_to order_meals_path
-	end
   
 	def create
-	  order_meal = OrderMeal.create(order_meal_params)
+	  order_meal = OrderMeal.new(order_meal_params)
 	  
 	  redirect_to order_meals_path
 	end
@@ -48,10 +37,10 @@ class OrderMealsController < ApplicationController
 	private
   
 	def order_meal_params
-	  params.require(:order_meal).permit(:quantity)
+	  params.require(:order_meal).permit(:quantity, :order_id, :meal_id)
 	end
   
 	def current_meal
-	  @order_meal = Order_Meal.find(params[:id])
+	  @order_meal = OrderMeal.find(params[:id])
 	end
 end

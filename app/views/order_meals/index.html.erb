@@ -1,7 +1,6 @@
-<% session[:dest] = false %>
 <%= render  "painel_pedidos" %>
 <div class="container font">
-	<h2 class="">Seu ultimo pedido: </h2>
+	<h2 class="">Seu último pedido: </h2>
 	<h5 class="">Aguarde seu pedido ser entregue.</h5>
 	<div class="container-fluid d-flex flex-wrap pl-0 justify-space-between">
 		<% total = 0 %>
@@ -15,7 +14,7 @@
 					</div>
 					<div class="flex-column">
 						<h4><%=@meal.name %> </h4>
-						<p class="margin_cart_text">Quantidade: <%= quant %></p>
+						<label class="margin_cart_text">Quantidade: <%= quant %></label>
 						<p class="margin_cart_text">Preço unitário: <%= @meal.price%></p>
 						<p class="margin_cart_text">Preço total: <%= @meal.price * quant.to_i  %></p>
 					<% total += (@meal.price*quant.to_i) %>
@@ -30,14 +29,14 @@
 		<% end %>
 	</div>
 </div>
-<div>
-	<hr>
-	<div>
+<hr>
+<div class="container d-flex">
+	<div style="margin-right: 61%">
 		<h5>Esqueceu algo ?</h5>
-		<h6><%=button_to "Clique aqui", root_path, method: :get,class: "btn btn-dark"%> <-para retornar ao nosso menu.</h6>
+		<h6><%=button_to "Clique aqui", root_path, method: :get,class: "btn btn-dark"%>Para retornar ao menu.</h6>
 	</div>
-	<div>		
+	<div>
 		<h4><b>Total do pedido: </b><span class="text-success">R$<%= total %></span></h4>
-		<%=button_to "Finalizar pedido", order_meals_path, method: :get, class: "btn btn-success" %> 
+		<%=link_to "Finalizar pedido", pedidos_path, method: :get, class: "btn btn-success" %> 
 	</div>
 </div>

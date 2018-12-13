@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'pedidos/index'
   resources :backoffice_users
   root to: 'homes#index'
   resources :pedidos
@@ -10,7 +11,7 @@ Rails.application.routes.draw do
   
   put '/delete', to: 'carts#delete_item', as: 'delete'
   put '/add', to: 'carts#add_item', as: 'add'
-  
+
   devise_for :users
 
 
