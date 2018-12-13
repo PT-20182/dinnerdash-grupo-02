@@ -2,30 +2,36 @@
 <div class="container font">
     <h2 class="">Seu último pedido: </h2>
     <div class="container-fluid d-flex flex-wrap pl-0 justify-space-between">
-    <% if @order != nil %>
-        <h5 class="">Aguarde seu pedido ser entregue.</h5>
+        <% if @order != nil %>
+            <div class="flex-column">
+                <h5 class="">Aguarde seu pedido ser entregue.</h5>
+            <div class="d-flex flex-row flex-wrap">
             <% @order_meals.each do | order | %>
                 <% @meal = Meal.find(order.meal_id) %>
                 <div class="card card_checkout_box mr-2 d-flex flex-wrap mb-2">
-                    <div class="card-body d-flex flex-wrap justify-content-around">
-                        <div class="d-flex col pl-0 pr-2">
+                    <div class="card-body d-flex flex-wrap justify-content-start ml-4">
+                        <div class="d-flex row pl-0 pr-2">
                             <%= image_tag(@meal.image, class: "card-img-top img_cart_home") %>
+						<div class="ml-4">
+							<h4><%=@meal.name %> </h4>
+						</div>
                         </div>
-                        <div class="flex-column">
-                            <h4><%=@meal.name %> </h4>
+                        <div class="flex-column margin-custom_om2">
                             <label for="exampleFormControlSelect1">Quantidade</label>
                             <p class="margin_cart_text">Preço unitário: <%= @meal.price%></p>
                             <p class="margin_cart_text">Preço total: <%= @meal.price * order.quantity %></p>
-                        </div>
+                    </div>
                     </div>
                 </div>
             <% end %>
-        </div>
+            </div>
+            </div>
+    </div>
 </div>
-    <% else %>
-        <h5 class="">Nenhum pedido realizado ainda.</h5>
+        <% else %>
+            <h5 class="">Nenhum pedido realizado ainda.</h5>
 
-    <% end %>
+        <% end %>
 <hr>
 <div class="container-fluid">
     <br>
