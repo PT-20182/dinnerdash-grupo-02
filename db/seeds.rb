@@ -1,8 +1,8 @@
 Situation.delete_all
 Situation.create(status: "Em andamento")
-Situation.create(status: "Pago")
-Situation.create(status: "Cancelado")
 Situation.create(status: "Confirmado")
+Situation.create(status: "Cancelado")
+Situation.create(status: "Concluido")
 User.delete_all
 User.create! do |admin|
 	admin.name = "Administrador"

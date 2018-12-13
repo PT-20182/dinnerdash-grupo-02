@@ -1,7 +1,7 @@
 <%= render  "layouts/painel_categories" %>
 <%= render  "nav_orders" %> 
     <div class="container content font">
-       <table class="table categories">
+       <table class="table categories" id = "categorias">
             <thead class="gray">
                 <tr>
                     <th scope="col">Pedido de n°</th>
@@ -17,8 +17,17 @@
             <tbody>
                 <% @orders.each do |order| %>   
                     <tr>    
+                    <% situation = Situation.find(order.situation_id) %>
                         <td class =""><%=order.id%></td>
-                        <td class =""><%= Situation.find(order.situation_id).status %></td>
+                        <% if  situation.id == 1 %>
+                            <td class =""><p class = "pendente"><%= situation.status %></p></td>
+                        <% elsif  situation.id == 2 %>
+                            <td class =""><p class = "pendente bg-warning"><%= situation.status %></p></td>
+                        <% elsif  situation.id == 3 %>
+                            <td class =""><p class = "cancelado"><%= situation.status %></p></td>
+                        <% else  situation.id == 4 %>
+                            <td class =""><p class = "concluido"><%= situation.status %></p></td>
+                        <% end %>
                         <td class =""><%=order.created_at.strftime('%d/%m/%y')%></td>
                         <td class =""><%=User.find(order.user_id).name%></td>
                         <td class ="">R$<%=order.price%></td>
@@ -65,3 +74,40 @@
             </tbody>
         </table>
     </div>
+<script>
+
+        $(document).ready( function () {
+            $('#categorias').DataTable({
+                "paging": true,
+                "lengthChange": false,
+                "pagingType": "full_numbers",
+                "lengthMenu": [4],
+                "ordering": true,
+                "info": false
+
+            })
+            botao();
+
+        } );
+        function botao() {
+            let button = document.querySelectorAll("a.paginate_button");
+            for (let i = 0; i < button.length; i++) {
+                button[i].classList.add("btn");
+                button[i].classList.add("btn-outline-primary");
+				button[i].classList.add("mb-3");
+				button[i].classList.add("ml-1");
+                button[i].addEventListener("click", botao); 
+			}
+			let button_div = document.querySelector("div.paging_full_numbers");
+			button_div.classList.add("d-flex");
+			button_div.classList.add("justify-content-center");
+			let search = document.querySelector("div.dataTables_filter");
+			search.classList.add("d-flex");
+			search.classList.add("justify-content-end");
+			search.classList.add("mt-4");
+			let input = document.querySelector("div.dataTables_filter input");
+			input.addEventListener("input", botao);
+			input.classList.add("form-control");
+
+        }
+    </script>
