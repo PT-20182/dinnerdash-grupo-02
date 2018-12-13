@@ -8,8 +8,8 @@
 		<%= form.select :situation_id, @situations.collect{ | situation | [situation.status, situation.id]}, {class: "form-control mt-4 mb-4", placeholder: "Status"}%>
 		<div class="row">
 
-			<%= form.submit "Atualizar pedido", class: "btn btn-success ml-3"%>
-			<%= button_to "Voltar" , categories_path, :method => "get", class: "btn btn-outline-secondary ml-2"%>
+			<%= form.submit "Atualizar pedido", class: "btn btn-success ml-3 mt-2"%>
+			<%= button_to "Voltar" , categories_path, :method => "get", class: "btn btn-outline-secondary ml-2 mt-2"%>
 		</div>
 	<% end %>
 </div>
