@@ -14,13 +14,8 @@ Rails.application.routes.draw do
   
   put '/delete', to: 'carts#delete_item', as: 'delete'
   put '/add', to: 'carts#add_item', as: 'add'
-<<<<<<< HEAD
 
   devise_for :users
-=======
-  
-  devise_for :users, :path_prefix => 'my'
->>>>>>> refactV8
 
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
