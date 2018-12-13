@@ -3,8 +3,8 @@ class CategoriesController < ApplicationController
   helper ApplicationHelper
   before_action :current_category, only:[:show, :edit, :update, :destroy]
   before_action :verify_user
-  
-  
+
+
 	def verify_user
 
     if (user_signed_in? == false)
@@ -14,8 +14,6 @@ class CategoriesController < ApplicationController
     end
 
   end
-
-
 
   def index
     @meals = Meal.all
@@ -32,25 +30,25 @@ class CategoriesController < ApplicationController
   def create
 	  category = Category.create(category_params)
     if category.name.length <= 2
-      redirect_to new_category_path, alert: "Nome inválido! Minímo de 2 caracteres."
+      redirect_to categories_path, alert: "nome invalido! pequeno demais"
     else
-      redirect_to categories_path, notice: "Categoria criada com sucesso!"
+      redirect_to categories_path, notice: "Categoria criada com sucesso"
     end
   end
-  
+
   def edit
   end
 
   def update
     @category.update(category_params)
     if @category.name.length <= 2
-      redirect_to edit_category_path, alert: "Nome inválido! Minímo de 2 caracteres."
+      redirect_to categories_path, alert: "nome invalido! pequeno demais"
     else
-      redirect_to categories_path, notice: "Categoria atualizada com sucesso1"
+      redirect_to categories_path, notice: "Categoria atualizada com sucesso"
     end
   end
 
-  def destroy 
+  def destroy
     meals = Meal.all
     meals.each do |meal|
       if meal.category_id == @category.id
@@ -61,7 +59,7 @@ class CategoriesController < ApplicationController
 
     redirect_to categories_path, notice: "Categoria removida, com sucesso"
   end
-  
+
   private
 
   def category_params
@@ -71,5 +69,5 @@ class CategoriesController < ApplicationController
   def current_category
     @category = Category.find(params[:id])
   end
-  
+
 end

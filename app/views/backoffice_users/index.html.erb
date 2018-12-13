@@ -1,2 +1,42 @@
 <%= render  "layouts/painel_categories" %>
 <%= render  "nav_users" %>
+    <% if notice %>
+        <p class="alert alert-success"><%= notice %></p>
+    <% end %>
+    <% if alert %>
+        <p class="alert alert-danger"><%= alert %></p>
+    <% end %>
+    <div class="container content font">
+       <table class="table categories">
+            <thead class="gray">
+            <tr>
+                <th class="w-user-table"><p class="ml-4 mb-0 pl-2">Tipo</p></th>
+                <th class="w-user-table"><p class="mb-0">Nome</p></th>
+                <th>Email</th>
+                <th>Cadastrada em</th>
+                <th></th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+                <% @users.each do |user| %>
+                    <tr>    
+                        <% if user.admin == true %>
+                            <td class="pr-0"><p class="admin-tag">Admin</p></td> 
+                        <% else %>
+                            <td class="pr-0"><p class ="user-tag">User</p></td>
+                        <% end %>   
+                        <td class="w-user-table"><%= user.name %></td> 
+                        <td class=""> <%= user.email %></td>
+                        <td class=""><%=user.created_at.strftime('%d/%m/%y')%></td>
+                        <td class ="ed font-weight-bold"><%= link_to  "Editar", edit_backoffice_user_path(user) %></td>
+                        <td class ="exc font-weight-bold"><%= link_to "Excluir", backoffice_user_path(user), data: { confirm: "Você tem certeza?" }, method: :delete%></td>
+                    </tr>
+                <%end%>
+            </tbody>
+        </table>
+        <%= button_to "Criar novo usúario", new_backoffice_user_path, :method => "get", class: "btn btn-success" %>
+    <br>
+    <br>
+    <br>
+    </div>

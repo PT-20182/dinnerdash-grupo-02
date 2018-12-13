@@ -11,13 +11,29 @@
 			<div class = "d-flex flex-row contain">	
 				<%@meals.each do |meal|%>
 					<%if(meal.category_id == category.id)%>
-						<div class="card cards_backoffice">
-							<%= image_tag(meal.image, class: "card-img-top img_certa_backoffice")%>
-								<div class = "card-img-overlay over_backoffice">
-									<h6 class="card-title meal_name_backoffice">
+                        <% if meal.available == true %>
+						    <div class="card cards_backoffice">
+                        <% else %>   
+                            <div class="card cards_backoffice border-danger">
+                        <%end%>
+                            <% if meal.available == true %>
+							    <%= image_tag(meal.image, class: "card-img-top img_certa_backoffice")%>
+                                   <div class = "card-img-overlay over_backoffice">
+                                       <h6 class="card-title meal_name_backoffice">
                                         <span class = "espaco_name"><%= meal.name %></span>
                                     </h6>
-								</div>
+                                </div>
+                            <% else %>
+                                <%= image_tag(meal.image, class: "card-img-top img_certa_backoffice")%>
+                                <div class="d-flex justify-content-around painel_card card-img-overlay">
+                                    <h4 class="text-danger"><b>Indisponível</b></h4>
+                                </div>
+                                <div class = "card-img-overlay over_backoffice">
+                                    <h6 class="card-title meal_name_backoffice">
+                                        <span class = "espaco_name"><%= meal.name %></span>
+                                    </h6>
+                                </div>
+                            <% end %>
 							<div class="card-body position-relative">
 								<h5 class="card-text description position-relative"><%= meal.description %></h5>
 								<div class = "flex-row mt-3 card_footer">

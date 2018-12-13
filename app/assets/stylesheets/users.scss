@@ -279,7 +279,8 @@ input.login {
 
 
 p.admin-tag {
-	width: 40%;
+	width: 35%;
+	min-width: 6em;
     margin: 0px;
     padding: 0px;
     text-align: center;
@@ -289,11 +290,17 @@ p.admin-tag {
 }
 
 p.user-tag {
-	width: 40%;
+	width: 35%;
+	min-width: 6em;
     margin: 0px;
     padding: 0px;
     text-align: center;
     border-radius: 5px;
     color: white;
     background-color: #FF7700;
+}
+
+.w-user-table{
+	max-width: 3.5em;
+	min-width: 3em;
 }

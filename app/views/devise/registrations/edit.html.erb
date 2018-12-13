@@ -21,15 +21,15 @@
       <%= f.label :senha_atual, class: "mt-2" %>
       <%= f.password_field :current_password, autocomplete: "current-password", class:"form-control", placeholder:"Digite sua senha para confirmar alterações" %>
     </div>
-    <div class="card border-danger mt-4">
-        <h2 class="text-danger mt-4 ml-4 pl-2">Insatisfeito?<h2>
-        <%= button_to "Cancelar minha conta", registration_path(resource_name), data: { confirm: "Você tem certeza?" }, method: :delete, class:"btn btn-outline-danger mr-4 ml-4 mt-3 mb-4" %>
-    </div>
     <div class="container">
       <div class="row">
-      <%= f.submit "Salvar", class: "btn btn-success mr-4 mt-2" %>
+        <%= f.submit "Salvar", class: "btn btn-success mr-4 mt-2" %>
   <% end %>
         <%= button_to "Voltar", root_path, method: "get", class:"btn btn-secondary mt-2" %>
       </div>
+     <div class="card border-danger mt-4">
+        <h2 class="text-danger mt-4 ml-4 pl-2">Insatisfeito?<h2>
+        <%= button_to "Cancelar minha conta", registration_path(resource_name), data: { confirm: "Você tem certeza?" }, method: :delete, class:"btn btn-outline-danger mr-4 ml-4 mt-3 mb-4" %>
+      </div> 
     </div>
 </div>
