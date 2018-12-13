@@ -34,7 +34,7 @@
 										<% end %>
 									<% end %>
 									<% if flag == false %>								
-										<%= form_with url: add_path(id: meal.id), method: :put do | cart | %>
+										<%= form_with url: add_path(id: meal.id), method: :put, remote: true do | cart | %>
 												<%= cart.number_field :quantity, :value => 1, min: 1, class: "form-control pl-2 pr-0 w-75 ml-1 mb-2" %>
 												<%= cart.submit "Adicionar ao carrinho", class: "btn btn-success d-flex ml-1" %>
 										<% end %>
@@ -74,7 +74,7 @@
 						<p class="margin_cart_text">Preço total: <%= @meal.price * quant.to_i  %></p>
 					<% total += (@meal.price*quant.to_i) %>
 						<div class="form-group flex_column">
-							<%= form_with url: delete_path(id: meal["meal"]), method: :put do | cart | %>
+							<%= form_with url: delete_path(id: meal["meal"]), method: :put, remote: true do | cart | %>
 								<%= cart.submit "Remover do carrinho", class: "btn btn-outline-danger button_size mt-1" %> 
 							<% end %>
 						</div>

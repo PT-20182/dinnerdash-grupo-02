@@ -5,13 +5,17 @@ class CartsController < ApplicationController
 			@meal = params[:id]
 			current_cart.push(quantity: quantity,meal: @meal)
 		end
-		redirect_to root_path
+		respond_to do |format|
+			format.js {render inline: "location.reload();" }
+		end
 	end
 
 	def delete_item
 		@meal = params[:id]
 		session[:cart].delete_if{| x | x["meal"] == @meal}
-		redirect_to root_path
+		respond_to do |format|
+			format.js {render inline: "location.reload();" }
+		end
 
 	end
 	

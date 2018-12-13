@@ -1,6 +1,24 @@
 class OrderMealsController < ApplicationController
-	before_action :current_order_meal, only:[:show, :edit, :update, :destroy]
+	before_action :verify_user
+	before_action :verify_acess, only:[:show, :edit,:update]
+	before_action :verify_cart
+	def verify_acess
+		redirect_to root_path
+	end
+	def verify_cart
+		if session[:cart] == nil or session[:cart] == []
+			redirect_to root_path, alert: "pedido vazio!"
+		end
+	end
 
+	def verify_user
+
+    if (user_signed_in? == false)
+      redirect_to root_path, alert: "voce deve estar logado"
+
+    end
+
+  end
 
 	def index
 	  @order_meals = OrderMeal.all
@@ -31,6 +49,7 @@ class OrderMealsController < ApplicationController
       @order_meal = OrderMeal.new(quantity: quant, order_id: @order.id, meal_id: meal.id)
       @order_meal.save!
 		end
+		session[:cart] = nil
     redirect_to pedidos_path
 
 	end
