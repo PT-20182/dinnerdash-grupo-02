@@ -41,7 +41,6 @@ class OrdersController < ApplicationController
       @order_meal = OrderMeal.new(quantity: quant, order_id: @order.id, meal_id: meal.id)
       @order_meal.save!
     end
-    session[:cart] = nil  
     redirect_to root_path
   end
   
