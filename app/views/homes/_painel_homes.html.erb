@@ -8,7 +8,7 @@
         <% else %>
             <label class="float-right pt-1"><%= link_to  "sair", destroy_user_session_path, class: "link", method: "delete" %></label>
             <label class="upper_header float-right pt-1"><%= link_to  "perfil", edit_user_registration_path , class: "link" %></label>
-            <label class="upper_header float-right pt-1"><%= link_to  "home", pedidos_path , class: "link" %></label>
+            <label class="upper_header float-right pt-1"><%= link_to  "pedidos", pedidos_path , class: "link" %></label>
             <% if current_user.admin == true %>
                 <label class="upper_header float-right pt-1"><%= link_to  "backoffice", categories_path, class: "ed text-warning" %></label>
             <% end %>
@@ -16,7 +16,7 @@
         </header>
     <% if user_signed_in? == true %>
         <header class="lower_header fixed-bottom">
-            <h1 class="home_title text-truncate">Monte seu prato, <%= current_user.name%><%if current_user.admin == true%>Admin<%end%></h1>
+            <h1 class="home_title text-truncate">Monte seu prato, <%= current_user.name%></h1>
             <h3 class="home_subtitle">Escolha sua salada, molho, prato principal, guarnição e bebida</h3>
         </header>
     <%else%>

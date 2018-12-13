@@ -5,13 +5,14 @@
         <% if user_signed_in? == true %>
             <label class="float-right "><%= link_to  "sair", destroy_user_session_path, class: "link", method: "delete" %></label>
             <label class="upper_header float-right "><%= link_to  "perfil", edit_user_registration_path , class: "link" %></label>
+            <label class="upper_header float-right "><%= link_to  "pedidos", pedidos_path , class: "link" %></label>
             <% if current_user.admin == true %>
                 <label class="upper_header float-right"><%= link_to  "backoffice", categories_path, class: "ed text-warning" %></label>
             <% end %>
         <% end %>
         </header>
         <header class="lower_header fixed-bottom">
-            <h1 class="home_title text-truncate">Bem vindo, <%= current_user.name%><%if current_user.admin == true%>Admin<%end%></h1>
+            <h1 class="home_title text-truncate">Bem vindo, <%= current_user.name%></h1>
             <h3 class="home_subtitle">Neste espaço você pode finalizar o seu pedido</h3>
         </header>
 </div>

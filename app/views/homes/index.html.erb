@@ -65,10 +65,10 @@
 			<div class="card card_checkout_box mr-2 d-flex flex-wrap mb-2">
 				<div class="card-body d-flex flex-wrap justify-content-around">
 					<div class="d-flex col pl-0 pr-2">
-						<%= image_tag(@meal.image, class: "card-img-top img_cart_home") %>
-					</div>
-					<div class="flex-column">
+						<%= image_tag(@meal.image, class: "p-2 card-img-top img_cart_home") %>
 						<h4><%=@meal.name %> </h4>
+					</div>
+					<div class="col margin-custom">
 						<p class="margin_cart_text">Quantidade: <%= quant %></p>
 						<p class="margin_cart_text">Preço unitário: <%= @meal.price%></p>
 						<p class="margin_cart_text">Preço total: <%= @meal.price * quant.to_i  %></p>
