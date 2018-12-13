@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .header_pedidos{
     height: 60vh;
-    width: 100vw;
+    width: 100%;
     background-image: url(elli-o-43178.jpg);
     filter: brightness(90%);
     background-size: cover;
@@ -19,7 +19,7 @@
 }
 .painel_pedidos{
     height: 60vh;
-    width: 100vw;
+    width: 100%;
     overflow: hidden;
     position: relative;
     margin: 0%;
