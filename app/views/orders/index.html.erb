@@ -1,37 +1,42 @@
 <%= render  "layouts/painel_categories" %>
 <%= render  "nav_orders" %> 
-<br>
-<div class="container-fluid">
-<table class="table button_new_order">
-    <thead class="thead-light">
-        <tr>
-            <th>Pedido de nº</th>
-            <th>Status</th>
-            <th>Data</th>
-            <th>Usuário</th>
-            <th>Preço total</th>
-            <th>Detalhes</th>
-            <th colspan="2" ></th>
-        </tr>
-    </thead>
-    
-    <tbody>
-        <% Order.all.each_with_index do |order, index| %>
-            <tr>
-                <td><%= order.id %></td>
-                <td><%= Situation.all.find(order.situation_id).status  %></td>
-                <td><%= order.created_at.strftime("%d/%m/%Y") %></td>
-                <td><%= User.all.find(order.user_id).name %></td>
-                <td><%= order.price %></td>
-                <td> <%= link_to  "ver itens pedidos" %> </td>
-                <td>
-                    <%= link_to 'editar', edit_order_path(order), class: "btn btn-warning bord"%>
-                </td>
-                <td>
-                    <%= link_to 'apagar', order_path(order), 
-                    method: :delete, data: { confirm: "Tem certeza?" }, class: "btn btn-danger bord"   %>
-                </td>
-            </tr>
-        <% end %>
-    </tbody>
-</table>
+    <div class="container content font">
+       <table class="table categories">
+            <thead class="gray">
+                <tr>
+                    <th scope="col">Pedido de n°</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Data</th>
+                    <th scope="col">Usuários</th>
+                    <th scope="col">Preço total</th>
+                    <th scope="col">Detalhes</th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <% @orders.each do |order| %>
+                    <tr>    
+                        <td class =""><%=order.id%></td>
+                        <td class =""><%= Situation.find(order.situation_id).status %></td>
+                        <td class =""><%=order.created_at.strftime('%d/%m/%y')%></td>
+                        <td class ="">R$<%=order.price%></td>
+                        <td class ="font-weight-bold text-primary">Detalhes do pedido</td>
+                        <td class ="ed font-weight-bold text-warning"><%= link_to  "editar", edit_order_path(order) %></td>
+                        <td class ="exc font-weight-bold text-danger"><%= link_to "excluir", order, method: :delete, data: { confirm: 'você tem certeza?' } %></td>
+
+                    </tr>
+                <%end%>
+                <tr>    
+                    <td class ="">123456</td>
+                    <td class =""><p class="concluido">Confirmado</p></td>
+                    <td class ="">11/10/2018</td>
+                    <td class ="">Fernandinho</td>
+                    <td class ="">R$99.99</td>
+                    <td class ="font-weight-bold text-primary">Detalhes do pedido</td>
+                    <td class ="font-weight-bold text-warning">Editar</td>
+                    <td class ="font-weight-bold text-danger">Excluir</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>

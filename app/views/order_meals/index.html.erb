@@ -36,7 +36,7 @@
 		<h6><%=button_to "Clique aqui", root_path, method: :get,class: "btn btn-dark"%>Para retornar ao menu.</h6>
 	</div>
 	<div>
-		<h4><b>Total do pedido: </b><span class="text-success">R$<%= total %></span></h4>
+		<h4><b>Total do pedido: </b><span class="text-success">R$<%= total.round(2) %></span></h4>
 		<%=link_to "Finalizar pedido", pedidos_path, method: :get, class: "btn btn-success" %> 
 	</div>
 </div>
