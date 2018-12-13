@@ -15,17 +15,51 @@
                 </tr>
             </thead>
             <tbody>
-                <% @orders.each do |order| %>
+                <% @orders.each do |order| %>   
                     <tr>    
                         <td class =""><%=order.id%></td>
                         <td class =""><%= Situation.find(order.situation_id).status %></td>
                         <td class =""><%=order.created_at.strftime('%d/%m/%y')%></td>
                         <td class =""><%=User.find(order.user_id).name%></td>
                         <td class ="">R$<%=order.price%></td>
-                        <td class ="font-weight-bold text-primary">Detalhes do pedido</td>
+                        <td class ="font-weight-bold text-primary"><a data-toggle = "modal" data-target = "#t<%=order.id%>">Detalhes do pedido</button></td>
+                        <div class="modal fade" id="t<%= order.id%>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Pedido de n° <%= order.id %></h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <% @order_meals = OrderMeal.where("order_id = ?", order.id)%>
+                                        <% @order_meals.each do | meal | %>
+                                            <div class="card card_checkout_box mr-2 d-flex flex-wrap mb-2">
+                                                <div class="card-body d-flex flex-wrap justify-content-around">
+                                                    <div class="d-flex col pl-0 pr-2">
+                                                        <%= image_tag(Meal.find(meal.meal_id).image, class: "card-img-top img_cart_home") %>
+                                                    </div>
+                                                    <div class="flex-column">
+                                                        <h4><%=Meal.find(meal.meal_id).name %> </h4>
+                                                        <label for="exampleFormControlSelect1">Quantidade</label>
+                                                        <p class="margin_cart_text">Preço unitário: <%= Meal.find(meal.meal_id).price%></p>
+                                                        <p class="margin_cart_text">Preço total: <%= Meal.find(meal.meal_id).price * meal.quantity %></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        <% end %>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-primary">Save changes</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         <td class ="ed font-weight-bold text-warning"><%= link_to  "editar", edit_order_path(order) %></td>
                         <td class ="exc font-weight-bold text-danger"><%= link_to "excluir", order, method: :delete, data: { confirm: 'você tem certeza?' } %></td>
-
+                        
                     </tr>
                 <%end%>
             </tbody>

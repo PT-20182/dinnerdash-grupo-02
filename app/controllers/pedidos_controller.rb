@@ -10,6 +10,7 @@ class PedidosController < ApplicationController
   end
   
   def index
+    @orders = Order.where("user_id = ?", current_user.id)
     @order = Order.where("user_id = ?",current_user.id).last
     if(@order != nil)
       @order_meals = OrderMeal.where("order_id = ?", @order.id)
