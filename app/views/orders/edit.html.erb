@@ -1,2 +1,15 @@
-<h1>Orders#edit</h1>
-<p>Find me in app/views/orders/edit.html.erb</p>
+<%= render  "layouts/painel_categories" %>
+<%= render  "nav_orders" %>
+<div class = "container mb-5 mt-5 pb-5">
+    <% if alert %>
+        <p class="alert alert-danger mt-3"><%= alert %></p>
+    <% end %>
+	<%= form_with model: @order do |form| %>
+		<%= form.select :situation_id, @situations.collect{ | situation | [situation.status, situation.id]}, {class: "form-control mt-4 mb-4", placeholder: "Status"}%>
+		<div class="row">
+
+			<%= form.submit "Atualizar pedido", class: "btn btn-success ml-3"%>
+			<%= button_to "Voltar" , categories_path, :method => "get", class: "btn btn-outline-secondary ml-2"%>
+		</div>
+	<% end %>
+</div>

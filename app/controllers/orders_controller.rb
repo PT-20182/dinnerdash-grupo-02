@@ -29,6 +29,7 @@ class OrdersController < ApplicationController
   end
   
   def edit
+    @situations = Situation.all
   end
 
   def update
@@ -52,7 +53,7 @@ class OrdersController < ApplicationController
   private
 
   def order_params
-    params.require(:order).permit(:status)
+    params.require(:order).permit(:situation_id)
   end
 
   def current_order
