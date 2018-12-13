@@ -1,9 +1,9 @@
 class Order < ApplicationRecord
     validates :price, presence: true, numericality: { greater_than: 0 }
-    has_one :situation
+    belongs_to :situation
     has_many :order_meals
     belongs_to :user
-    before_create :set_order_status
+    #before_create :set_order_status
     before_save :update_subtotal
 
 

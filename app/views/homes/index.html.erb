@@ -75,7 +75,7 @@
 					<% total += (@meal.price*quant.to_i) %>
 						<div class="form-group flex_column">
 							<%= form_with url: delete_path(id: meal["meal"]), method: :put do | cart | %>
-								<%= cart.submit "Remover do carrinho", class: "btn btn-outline-danger button_size mt-1" %>
+								<%= cart.submit "Remover do carrinho", class: "btn btn-outline-danger button_size mt-1" %> 
 							<% end %>
 						</div>
 					</div>
