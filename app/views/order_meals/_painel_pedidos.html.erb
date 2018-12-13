@@ -1,5 +1,5 @@
 <header class="container-fluid header_pedidos text-white font">
-<div class="painel_pedidos">
+<div class="painel_pedidos pl-0">
     <header class="upper_header">
         <label class="upper_h2"><%= link_to  "dinnerdash",  root_path, class: "link" %></label>
         <% if user_signed_in? == true %>
@@ -11,7 +11,7 @@
         <% end %>
         </header>
         <header class="lower_header fixed-bottom">
-            <h1 class="home_title">Bem vindo, <%= current_user.name%><%if current_user.admin == true%>Admin<%end%></h1>
+            <h1 class="home_title text-truncate">Bem vindo, <%= current_user.name%><%if current_user.admin == true%>Admin<%end%></h1>
             <h3 class="home_subtitle">Neste espaço você pode finalizar o seu pedido</h3>
         </header>
 </div>
