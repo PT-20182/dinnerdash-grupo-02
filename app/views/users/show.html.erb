@@ -1,0 +1,41 @@
+<%= render  "layouts/painel_categories" %>
+<%= render  "nav_users" %>
+    <% if notice %>
+        <p class="alert alert-success"><%= notice %></p>
+    <% end %>
+    <% if alert %>
+        <p class="alert alert-danger"><%= alert %></p>
+    <% end %>
+    <div class="container content font">
+       <table class="table categories">
+            <thead class="gray">
+            <tr>
+                <th scope="col">Usuário</th>
+                <th scope="col">Email</th>
+                <th scope="col">Cadastrada em</th>
+                <th scope="col"></th>
+                <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+                <% @users.each do |user| %>
+                    <tr>    
+                        <% if user.admin == true %>
+                            <td><p class="admin-tag">Admin</p></td> 
+                        <% else %>
+                            <td><p class ="user-tag">User</p></td>
+                        <% end %>    
+                        <td class =""> <%= user.email %></td>
+                        <td class =""><%=user.created_at.strftime('%d/%m/%y')%></td>
+                        <td class ="ed font-weight-bold">Editar</td>
+                        <td class ="exc font-weight-bold">Excluir</td>
+
+                    </tr>
+                <%end%>
+            </tbody>
+        </table>
+        <%= button_to "Cria novo usúario", root_path, :method => "get", class: "btn btn-success" %>
+    <br>
+    <br>
+    <br>
+    </div>

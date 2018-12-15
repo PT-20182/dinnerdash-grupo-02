@@ -5,9 +5,10 @@
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="ml-5 pl-4 navbar-nav nav_meal">
             <span href="#"><%= link_to  "Pedidos", orders_path, class: "pt-0 pb-0 nav-link" %></span>
-            <span href="#"><%= link_to  "Usuários", users_show_path, class: "pt-0 pb-0 nav-link" %></span>
+            <span class=" active nav-item nav-link pt-0 pb-0" href="#">Usuários</span>
             <span href="#"><%= link_to  "Refeições", meals_path, class: "nav-item pt-0 pb-0 nav-link" %></span>
-            <span class="nav-item active nav-link pt-0 pb-0" href="#">Categorias de Refeição</span>
+            <span class="nav-item" href="#"><%= link_to  "Categorias de Refeição", categories_path, class: "nav-link pt-0 pb-0" %></span>
+
         </div>
     </div>
 </nav>

@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'users/show'
+  get 'users/edit'
+  get 'users/edit'
+  get 'users/show'
   root to: 'homes#index'
   resources :pedidos
   resources :order_meals

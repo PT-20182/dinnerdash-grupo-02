@@ -283,3 +283,24 @@ input.login {
 		font-size: 1.1em;
 	}
 }
+
+
+p.admin-tag {
+	width: 40%;
+    margin: 0px;
+    padding: 0px;
+    text-align: center;
+    border-radius: 5px;
+    color: white;
+    background-color: rgb(152, 35, 206);
+}
+
+p.user-tag {
+	width: 40%;
+    margin: 0px;
+    padding: 0px;
+    text-align: center;
+    border-radius: 5px;
+    color: white;
+    background-color: #FF7700;
+}
