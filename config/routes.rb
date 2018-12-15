@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'backoffice_user/show'
+  get 'backoffice_user/new'
+  get 'backoffice_user/edit'
   get 'users/show'
   get 'users/edit'
   get 'users/edit'
