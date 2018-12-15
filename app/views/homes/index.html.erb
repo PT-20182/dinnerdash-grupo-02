@@ -1,3 +1,4 @@
+<% session[:cart] ||= [] %>
 <%= render  "painel_homes" %>
 <% if notice %>
   <p class="alert alert-success"><%= notice %></p>
@@ -5,6 +6,7 @@
 <% if alert %>
   <p class="alert alert-danger"><%= alert %></p>
 <% end %>
+<% session[:cart] ||= [] %>
 <div class="container font">
 	<%@categories.each do |category| %>
 		<% i = quantidade(category) %>
@@ -13,62 +15,73 @@
 			<div class = "d-flex flex-row contain">	
 				<%@meals.each do |meal|%>
 					<%if(meal.category_id == category.id)%>
-						<div class="card cards">
-							<%= image_tag(meal.image, class: "card-img-top")%>
-								<div class = "card-img-overlay over">
-									<h6 class="card-title meal_name">
-										<span class = "espaco_name"><%= meal.name %></span>
-									</h6>
-								</div>
+						<div class="card cards ">
+							<%= image_tag(meal.image, class: "card-img-top img_certa")%>
+							<div class = "card-img-overlay over ">
+								<h6 class="card-title meal_name">
+									<span class = "espaco_name"><%= meal.name %></span>
+								</h6>
+							</div>
 							<div class="card-body position-relative">
 								<h5 class="card-text description position-relative"><%= meal.description %></h5>
 								<h5 class="text-success">R<%=number_to_currency(meal.price) %> por porção </h5>
 								<div class="form-group">
 									<label for="exampleFormControlSelect1">Quantidade</label>
-									<select class="form-control" id="exampleFormControlSelect1">
-										<% i = 1 %>
-										<% 10.times do %>
-											<option><%= i %></option>
-											<% i+= 1 %>
-										<% end %>	
-									</select>
+									<% flag = false %>
+									<% session[:cart].each do | meals | %>
+										<% if Meal.find(meals["meal"]) == meal %>
+											<% flag = true %>
+										<% end %>
+									<% end %>
+									<% if flag == false %>
+										<%= form_with url: add_path(id: meal.id), method: :put do | cart | %>
+											<%= cart.number_field :quantity, {:value => 1, min: 1 } %>
+											<%= cart.submit "Adicionar ao carrinho", class: "btn btn-success justify-content-center d-flex" %>
+										<% end %>
+									<% else %>
+										<%= form_with url: add_path(id: meal.id), method: :put do | cart | %>
+											<%= cart.number_field :quantity, {:value => 1, disabled: true, min: 1 } %>
+											<%= cart.submit "Adicionado carrinho", class: "btn btn-success justify-content-center d-flex" %>
+										<% end %>
+									<% end %>
 							    </div>
-								<%= button_to  "Adicionar ao carrinho", homes_add_meal_path, class: "btn btn-success justify-content-center d-flex", method: "post" %>
 							</div>
 						</div>
 					<% end %>
 				<% end %>
+			</div>
 		<% end %>
-		</div>
 	<% end %>
 </div>
 <hr>
 <div class="container font">
 	<h2 class="">Finalizou seu pedido?</h2>
 	<h5 class="">Confira os itens adicionados ao carrinho antes de finalizar.</h5>
-	<div class="card card_checkout_box flex-wrap">
-		<div class="card-body d-flex flex-wrap justify-content-around">
-			<div class="d-flex">
-			<p>IMG</p>
+	<% total = 0 %>
+	<% session[:cart].each do | meal| %>
+		<% @meal = Meal.find(meal["meal"]) %>
+		<% quant = meal["quantity"] %>
+		<div class="card card_checkout_box flex-wrap">
+			<div class="card-body d-flex flex-wrap justify-content-around">
+				<div class="d-flex">
+					<%= image_tag(@meal.image, class: "card-img-top") %>
+				</div>
+				<div class="flex-column">
+
+					<h4><%=@meal.name %> </h4>
+					<p class="margin_cart_text">Quantidade: <%= quant %></p>
+					<p class="margin_cart_text">Preço unitário: <%= @meal.price%></p>
+					<p class="margin_cart_text">Preço total: <%= @meal.price * quant.to_i  %></p>
+				</div>
+				<% total += (@meal.price*quant.to_i) %>
+				<div class="form-group flex_column">
+				<%= form_with url: delete_path(id: meal["meal"]), method: :put do | cart | %>
+					<%= cart.submit "Remover do carrinho", class: "btn btn-outline-danger button_size mt-1" %>
+				<% end %>
+				</div>
 			</div>
-		<div class="flex-column">
-			<h4>*NOME DO PRATO*</h4>
-			<p class="margin_cart_text">Quantidade:</p>
-			<p class="margin_cart_text">Preço unitário:</p>
-			<p class="margin_cart_text">Preço total:</p>
 		</div>
-		<div class="form-group flex_column">
-			<label for="exampleFormControlSelect1">Quantidade:</label>
-			<select class="form-control max_form" id="exampleFormControlSelect1">
-			<% i = 1 %>
-			<% 5.times do %>
-				<option><%= i %></option>
-				<% i+= 1 %>
-			<% end %>	
-			</select>
-			<%= button_to  "Remover", homes_delete_meal_path, class: "btn btn-outline-danger button_size mt-1", method: "post" %>
-		</div>
-	</div>
-	</div>
+	<% end %>
+	<%= total %>
 	<button type="button" class="btn btn-success mt-3">Finalizar pedido</button>
 </div>
