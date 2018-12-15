@@ -27,14 +27,13 @@
                         <% end %>    
                         <td class =""> <%= user.email %></td>
                         <td class =""><%=user.created_at.strftime('%d/%m/%y')%></td>
-                        <td class ="ed font-weight-bold">Editar</td>
-                        <td class ="exc font-weight-bold">Excluir</td>
-
+                        <td class ="ed font-weight-bold"><%= link_to  "Editar", backoffice_user_path(user) %></td>
+                        <td class ="exc font-weight-bold"><%= link_to "Excluir", backoffice_user_path(user), data: { confirm: "Você tem certeza?" }, method: :delete%></td>
                     </tr>
                 <%end%>
             </tbody>
         </table>
-        <%= button_to "Cria novo usúario", root_path, :method => "get", class: "btn btn-success" %>
+        <%= button_to "Criar novo usúario", new_backoffice_user_path, :method => "get", class: "btn btn-success" %>
     <br>
     <br>
     <br>

@@ -1,2 +1,33 @@
-<h1>BackofficeUsers#new</h1>
-<p>Find me in app/views/backoffice_users/new.html.erb</p>
+<%= render  "layouts/painel_categories" %>
+<%= render  "nav_users" %>
+<div class="container flex-wrap flex-wrap font">
+    <h2 class="mt-3"><b>Editar perfil<b></h2>
+    <hr>
+  <%= form_for(@user, url: registration_path(@user), html: { method: :post }) do |f| %>
+    <div class="form-row">
+        <div class="col">
+            <%= f.label :Nome, class: "mt-2" %>
+            <%= f.text_field :name, autofocus: true, class:"form-control", placeholder:"Nome do cliente" %>
+        </div>
+        <div class="col">
+            <%= f.label :email, class: "mt-2" %>
+            <%= f.email_field :email, autofocus: true, class:"form-control", placeholder:"cliente@exemplo.com" %>
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="col">
+            <%= f.label :senha, class: "mt-2"%>
+            <%= f.password_field :password, autocomplete: "new-password", class:"form-control", placeholder:"Mínimo de 6 caracteres"%>
+        </div>
+        <div class="col">
+            <%= f.label :confirme_sua_senha, class: "mt-2" %><br />
+            <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"form-control", placeholder:"Confirme sua senha" %>
+        </div>
+    </div>
+    <div class="row">
+        <%= f.submit "Salvar", class: "btn btn-success ml-3 mr-4 mt-2" %>
+ <% end %>
+        <%= button_to "Voltar", root_path, method: "get", class:"btn btn-secondary mt-2" %>
+  </div>
+</div>
