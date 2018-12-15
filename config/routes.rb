@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :backoffice_users
   root to: 'homes#index'
   resources :pedidos
   resources :order_meals
